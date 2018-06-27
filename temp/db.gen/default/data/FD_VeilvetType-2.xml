@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-    <row id="1" name="Хаар" name_ru="Хаар" name_kz="Хаар" name_en="Haar"
-         fullName="Хаар" fullName_ru="Хаар" fullName_kz="Хаар"
-         fullName_en="Haar" ord="1" vis="1"/>
-    <row id="2" name="Добеши" name_ru="Добеши" name_kz="Добеши"
-         name_en="Dobeshy" fullName="Добеши" fullName_ru="Добеши"
-         fullName_kz="Добеши" fullName_en="Dobeshy" ord="2" vis="1"/>
-</root>

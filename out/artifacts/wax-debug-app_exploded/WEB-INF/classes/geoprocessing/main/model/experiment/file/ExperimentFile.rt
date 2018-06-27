@@ -5,22 +5,33 @@
 
         <field name="experiment" parent="Experiment/ref"/>
 
-        <field name="name" parent="f.cmt"/>
+        <field name="name" parent="f.name"/>
 
-        <field name="fileId" parent="DbFileStorage/ref" title="Файл эксперимента"/>
+        <field name="dte" parent="date" title="Дата загрузки"/>
+
+        <field name="fileName" parent="string" size="200"/>
+
+        <field name="fileStorage" parent="DbFileStorage/ref" title="Файл эксперимента"/>
+
+        <field name="processed" parent="boolean" title="Обработан"/>
 
         <field name="description" parent="f.cmt" title="Описание"/>
 
 
         <!-- ===================================================================== -->
         <dao name="list" class="geoprocessing.main.model.experiment.file.ExperimentFile_list"/>
-        <dao name="updater" class="geoprocessing.main.model.experiment.file.ExperimentFile_updater"/>
+        <dao name="updater" class="geoprocessing.main.model.experiment.file.ExperimentFile_updater" domain="ExperimentFile.full"/>
+    </domain>
+
+    <domain name="ExperimentFile.full" parent="ExperimentFile">
+
+        <field name="fn" parent="upload" title="Файл"/>
+
     </domain>
 
     <!-- ===================================================================== -->
 
     <domain name="ExperimentFile.filter" parent="ExperimentFile">
-
 
     </domain>
 

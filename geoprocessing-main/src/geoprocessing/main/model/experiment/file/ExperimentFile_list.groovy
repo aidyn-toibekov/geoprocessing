@@ -14,8 +14,10 @@ class ExperimentFile_list extends WaxLoadSqlFilterDao {
     @Override
     protected void onCreateFilter(SqlFilter f) throws Exception {
 
+        f.filter(field: "experiment", type: "equal", hidden:true)
+
         f.sql = """
-        select * from ExperimentFile h where 0=0
+        select * from ExperimentFile h where 0=0 order by id
         """
 
     }

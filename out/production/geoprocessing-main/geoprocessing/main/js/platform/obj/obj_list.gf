@@ -1,8 +1,5 @@
 <%@ page import="jandcode.dbm.dao.*; jandcode.dbm.data.*; jandcode.wax.core.utils.gf.*" %>
 %{--
-
-Список пользователей
-
 ========================================================================= --}%
 <gf:groovy>
   <%

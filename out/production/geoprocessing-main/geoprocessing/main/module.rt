@@ -24,6 +24,27 @@
 
     <x-include path="utils/index.rt"/>
 
+    <service name="jandcode.bgtasks.BgTasksService"
+             class="jandcode.bgtasks.impl.BgTasksServiceImpl"
+             maxThreads="10"
+             enabled="true"
+             delay="100"
+             period="100">
+
+        <errorhandler name="default"
+                      class="jandcode.bgtasks.impl.BgTasksErrorHandlerDefault"/>
+
+        <choicer name="timer"
+                 class="jandcode.bgtasks.impl.TimerBgTasksChoicer"
+                 weight="-100"/>
+
+        <!--
+                <bgtask name="TASK-NAME"
+                      class="TASK-CLASS"/>
+        -->
+
+    </service>
+
     <web>
 
         <resource name="geoprocessing.main" package="geoprocessing.main"/>

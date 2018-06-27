@@ -3,11 +3,11 @@
 
     <domain name="Experiment" parent="wax.Table" tag.db="true" title="Эксперимент">
 
-        <field name="name" parent="f.cmt"/>
+        <field name="name" parent="f.name"/>
 
         <field name="dte" parent="date" title="Дата эксперимента"/>
 
-        <field name="description" parent="f.cmt" title="Описание"/>
+        <field name="description" parent="lang.memo" title="Описание"/>
 
 
         <!-- ===================================================================== -->

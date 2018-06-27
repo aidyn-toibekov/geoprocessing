@@ -17,7 +17,7 @@
     </menu>
 
     <action title="Эксперименты" icon="storage"
-            frame="js/geoprocessing/seismicdata_list.gf" id="true"/>
+            frame="js/platform/experiment/experiment_list.gf" id="true"/>
     
 
 </root>

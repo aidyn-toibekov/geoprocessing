@@ -237,18 +237,6 @@
             </library>
         </orderEntry>
         <orderEntry type="module-library">
-            <library name="jandcode-bgtasks">
-                <CLASSES>
-                    <root
-                          url="jar://C:\PROJECTS\geoprocessing\lib\jandcode-bgtasks.jar!/"/>
-                </CLASSES>
-                <SOURCES>
-                    <root
-                          url="jar://C:\PROJECTS\geoprocessing\lib\jandcode-bgtasks-src.zip!/"/>
-                </SOURCES>
-            </library>
-        </orderEntry>
-        <orderEntry type="module-library">
             <library name="jandcode-wax-verdb">
                 <CLASSES>
                     <root
@@ -278,6 +266,18 @@
             </library>
         </orderEntry>
         <orderEntry type="module" module-name="geoprocessing-mssql"/>
+        <orderEntry type="module-library">
+            <library name="jandcode-bgtasks">
+                <CLASSES>
+                    <root
+                          url="jar://C:\PROJECTS\geoprocessing\lib\jandcode-bgtasks.jar!/"/>
+                </CLASSES>
+                <SOURCES>
+                    <root
+                          url="jar://C:\PROJECTS\geoprocessing\lib\jandcode-bgtasks-src.zip!/"/>
+                </SOURCES>
+            </library>
+        </orderEntry>
         <orderEntry type="module" module-name="geoprocessing-main"/>
         <orderEntry type="module-library">
             <library name="junit">
