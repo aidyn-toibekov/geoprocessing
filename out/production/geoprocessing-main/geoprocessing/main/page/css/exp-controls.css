@@ -1,0 +1,20 @@
+.exp-row-green .x-grid-cell{
+    background-color: #60f790 !important;
+}
+
+.exp-row-yellow .x-grid-cell{
+    background-color: #fcfc03 !important;
+}
+
+.exp-row-blue .x-grid-cell{
+    background-color: #d7f2f1 !important;
+}
+
+.exp-row-redred .x-grid-cell{
+    background-color: #fca4a4 !important;
+}
+
+.exp-row-red .x-grid-cell{
+    background-color: #f2dede !important;
+    color: #747474; !important;
+}

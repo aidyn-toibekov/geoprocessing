@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!--
+        Описание главного меню подсистемы
+    -->
+
+
+    <menu title="Материалы" icon="station" expanded="false" bold="true">
+
+        <action title="Типы материалов" icon="layers"
+                frame="js/platform/materialtype/materialType_list.gf" id="true"/>
+
+        <action title="Объекты экспериментов" icon="station"
+                frame="js/platform/obj/obj_list.gf" id="true"/>
+
+    </menu>
+
+    <action title="Эксперименты" icon="storage"
+            frame="js/geoprocessing/seismicdata_list.gf" id="true"/>
+    
+
+</root>

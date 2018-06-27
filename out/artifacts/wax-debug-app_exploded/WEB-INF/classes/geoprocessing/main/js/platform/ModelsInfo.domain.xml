@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <domain name="default" parent="id">
+        <field name="id" parent="string"/>
+        <field name="info" parent="string"/>
+        <field name="driver" parent="string"/>
+        <field name="url" parent="string"/>
+        <field name="username" parent="string"/>
+        <field name="icon" parent="string"/>
+    </domain>
+
+</root>

@@ -1,4 +1,4 @@
-<%@ page import="jandcode.lang.LangService; jandcode.wax.core.utils.*; jandcode.web.*" %>
+<%@ page import="geoprocessing.main.utils.ExpAppService; jandcode.lang.LangService; jandcode.wax.core.utils.*; jandcode.web.*" %>
 <%
   /*
     При обращении к корню абсолютному ("/") - делаем редирект на платформу
@@ -7,9 +7,14 @@
 
   WaxTml th = new WaxTml(this)
 
-  th.app.service(LangService).setCurrentLang(th.app.service(LangService).getDefaultLang().name)
+  def expapp = th.app.service(ExpAppService).currentExpApp
+  def curlang = th.app.service(LangService).currentLang
 
-
-  th.include("/js/app.gsp")
+  if (expapp.name == "none") {
+    th.request.redirect("a/platform/${curlang.name}", false, [:])
+  } else {
+    th.include("/js/${expapp.name}/expapp.gsp")
+  }
 
 %>
+

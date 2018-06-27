@@ -22,15 +22,32 @@
 
     </model>
 
+    <x-include path="utils/index.rt"/>
+
     <web>
 
         <resource name="geoprocessing.main" package="geoprocessing.main"/>
+
+        <filter name="geoprocessing.main.filter.ExpAppWebFilter"
+                class="geoprocessing.main.filter.ExpAppWebFilter" weight="-100000"/>
 
         <action name="bgtasks"
                 class="jandcode.bgtasks.BgTasksAction"/>
 
         <filter name="bgtasks"
                 class="jandcode.bgtasks.impl.BgTasksWebFilter"/>
+
+        <theme default="ide3">
+            <item name="jc-all.css">
+                <item name="exp-controls.css" path="page/css/exp-controls.css"/>
+            </item>
+
+            <ide3 parent="web/theme/ide" jsclass="Jc.theme.Ide3">
+            </ide3>
+
+
+        </theme>
+
     </web>
 
 
@@ -79,7 +96,8 @@
 
 
     <app>
-        title="Geoprocessing"
+        <expapp name="platform" jsclass="Jc.platform.App"
+                title="Алгоритмы обработки геоданных" system="true"/>
     </app>
 
 </root>
