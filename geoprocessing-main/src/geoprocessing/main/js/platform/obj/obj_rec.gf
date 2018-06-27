@@ -18,6 +18,8 @@
       b.input2("length"),
       b.input2("width"),
       b.input2("height"),
+      b.input2("lon"),
+      b.input2("lat"),
       b.input2("materialType",{jsclass:"Cb_MaterialType"})
 
   ];

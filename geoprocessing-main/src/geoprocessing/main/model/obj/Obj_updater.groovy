@@ -31,6 +31,15 @@ class Obj_updater extends GeoprocessingUpdaterDao {
             ut.errors.addErrorFatal("Высота объекта не может быть равна 0!")
         }
 
+        if(rec.getValueDouble("lon") == 0 || rec.getValueDouble("lat") == 0 ||
+                rec.getValueDouble("lon") >= 180 || rec.getValueDouble("lat") >= 180){
+            ut.errors.addErrorFatal("Укажите корректную долготу и широту!")
+        }
+
+        if(rec.getValueDouble("materialType") == 0){
+            ut.errors.addErrorFatal("Укажите тип материала!")
+        }
+
         super.onBeforeSave(rec, ins)
     }
 }

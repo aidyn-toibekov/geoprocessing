@@ -39,6 +39,7 @@
         }),
         b.column("dte", {flex: 1}),
         b.column("processed", {flex: 0.5}),
+        b.column("cnt", {flex: 0.5}),
         b.column("description", {
           flex: 1, tdCls: "td-wrap"
         })
@@ -57,6 +58,8 @@
         onExec: function(a) {
           var ff = function() {
             sgrid.reload();
+            Jc.getComponent(th, 'PROCESSFILE').disable();
+            Jc.getComponent(th, 'VIEW').enable();
           }
 
           Jc.daoinvokeBg("ExperimentFile/updater", "processFile", [a.recId], ff);

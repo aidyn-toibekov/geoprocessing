@@ -35,6 +35,8 @@
         b.column("length", {flex: 1}),
         b.column("width", {flex: 1}),
         b.column("height", {flex: 1}),
+        b.column("lon", {flex: 1}),
+        b.column("lat", {flex: 1}),
         b.column("materialType", {flex: 1})
       ];
     },

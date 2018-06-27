@@ -12,8 +12,6 @@
         <field name="a" parent="double" title="a"/>
 
 
-
-
         <!-- ===================================================================== -->
         <dao name="list" class="geoprocessing.main.model.experiment.data.ExperimentData_list"/>
         <dao name="updater" class="geoprocessing.main.model.experiment.data.ExperimentData_updater"/>

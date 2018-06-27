@@ -15,6 +15,7 @@
 
   th.items = [
       b.input2("name"),
+      b.input2("dte"),
       b.input2("fn"),
       b.input2("description")
 

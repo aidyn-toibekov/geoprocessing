@@ -11,6 +11,10 @@
 
         <field name="height" parent="double" title="Высота"/>
 
+        <field name="lon" parent="double" title="Долгота"/>
+        
+        <field name="lat" parent="double" title="Широта"/>
+
         <field name="materialType" parent="MaterialType/ref"/>
 
 

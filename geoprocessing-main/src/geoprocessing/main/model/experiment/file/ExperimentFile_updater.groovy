@@ -1,27 +1,27 @@
 package geoprocessing.main.model.experiment.file
 
+import geoprocessing.main.model.experiment.*
 import geoprocessing.main.model.sys.*
-import geoprocessing.utils.dbfilestorage.DbFileStorageItem
-import geoprocessing.utils.dbfilestorage.DbFileStorageService
-import jandcode.bgtasks.BgTask
-import jandcode.bgtasks.BgTasksService
-import jandcode.dbm.dao.DaoMethod
-import jandcode.dbm.data.DataRecord
-import jandcode.dbm.data.DataStore
-import jandcode.utils.UtCnv
-import jandcode.utils.UtLang
-import jandcode.wax.core.utils.upload.UploadFile
+import geoprocessing.utils.dbfilestorage.*
+import jandcode.dbm.dao.*
+import jandcode.dbm.data.*
+import jandcode.utils.*
+import jandcode.wax.core.utils.upload.*
 import org.joda.time.DateTime
 
 class ExperimentFile_updater extends GeoprocessingUpdaterDao {
 
+    DataRecord newRec() throws Exception {
+        DataRecord record = ut.createRecord(getDomain());
+        record.setValue("dte", DateTime.now());
+
+        return record;
+    }
 
     protected void onBeforeSave(DataRecord rec, boolean ins) throws Exception {
         if (rec.isValueNull("fn")) {
             ut.errors.addError("Файл не выбран")
         }
-
-        rec.setValue("dte", DateTime.now());
 
         setFileStorageId(rec);
     }
@@ -45,17 +45,15 @@ class ExperimentFile_updater extends GeoprocessingUpdaterDao {
     }
 
     protected boolean fileExists(String fileName) {
-        DataStore st = ut.loadSql("select * from ExperimentFile s where s.fileName=:fileName ", UtCnv.toMap("fileName",fileName))
+        DataStore st = ut.loadSql("select * from ExperimentFile s where s.fileName=:fileName ", UtCnv.toMap("fileName", fileName))
         return st.size() > 0
     }
 
 
     @DaoMethod
-    public void processFile(long recId){
-        BgTask task = new FileProcessTask(recId);
-
-        BgTasksService service = getApp().service(BgTasksService);
-        service.addTask(task);
+    public void processFile(long recId) {
+        ExperimentUtils experimentUtils = new ExperimentUtils(ut, recId);
+        experimentUtils.process();
     }
 
 

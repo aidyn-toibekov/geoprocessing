@@ -27,6 +27,8 @@
 
         <field name="fn" parent="upload" title="Файл"/>
 
+        <field name="cnt" parent="long" title="Строк"/>
+
     </domain>
 
     <!-- ===================================================================== -->

@@ -28,4 +28,5 @@ _product
 -TEMPLATE
 temp
 out
-^_
+datadir
+_db-ini.rt
