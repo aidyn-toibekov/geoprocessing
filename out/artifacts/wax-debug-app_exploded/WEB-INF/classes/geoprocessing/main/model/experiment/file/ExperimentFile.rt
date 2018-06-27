@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 
-    <domain name="ExperimentFile" parent="wax.Table" tag.db="true" title="Файл эксперимента">
+    <domain name="ExperimentFile" parent="wax.Table" tag.db="true"
+            title="Файл эксперимента">
 
         <field name="experiment" parent="Experiment/ref"/>
 
@@ -19,8 +20,11 @@
 
 
         <!-- ===================================================================== -->
-        <dao name="list" class="geoprocessing.main.model.experiment.file.ExperimentFile_list"/>
-        <dao name="updater" class="geoprocessing.main.model.experiment.file.ExperimentFile_updater" domain="ExperimentFile.full"/>
+        <dao name="list"
+             class="geoprocessing.main.model.experiment.file.ExperimentFile_list"/>
+        <dao name="updater"
+             class="geoprocessing.main.model.experiment.file.ExperimentFile_updater"
+             domain="ExperimentFile.full"/>
     </domain>
 
     <domain name="ExperimentFile.full" parent="ExperimentFile">
@@ -32,6 +36,14 @@
     </domain>
 
     <!-- ===================================================================== -->
+
+    <domain name="ExperimentFile.chartData" parent="id">
+
+        <field name="layer" parent="long" title="Срез"/>
+
+        <field name="data" parent="string" title="Данные графика"/>
+
+    </domain>
 
     <domain name="ExperimentFile.filter" parent="ExperimentFile">
 

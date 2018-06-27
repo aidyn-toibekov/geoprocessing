@@ -66,12 +66,18 @@
         }
       }),
       b.actionDelFrame({daoname: th.updaterDao, disabled: true, itemId: "DEL"}),
-      b.actionViewFrame({frame: "", disabled: true, itemId: "VIEW"})
+      b.actionViewFrame({
+        frame: "js/platform/experimentfile/experimentfile_view.gf",
+        recId : th.fileId,
+        disabled: true,
+        itemId: "VIEW"})
     ]
   });
 
   sgrid.on("select", function(gr, rec) {
     if (!rec) return;
+
+    th.fileId = rec.get('id')
 
     Jc.getComponent(th, 'VIEW').disable();
     Jc.getComponent(th, 'PROCESSFILE').disable();
