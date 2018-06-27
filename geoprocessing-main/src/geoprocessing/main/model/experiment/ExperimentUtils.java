@@ -83,7 +83,7 @@ public class ExperimentUtils {
              builder.append(record.getValue("experimentFile")+",");
              builder.append(record.getValue("x")+",");
              builder.append(record.getValue("y")+",");
-             builder.append(record.getValue("a")+") ");
+             builder.append(record.getValue("a")+") \n");
              sqlList.add(builder.toString());
         }
 
