@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <row id="1" name="Хаар" name_ru="Хаар" fullName="Хаар" fullName_ru="Хаар"
+         ord="1" vis="1"/>
+    <row id="2" name="Добеши" name_ru="Добеши" fullName="Добеши"
+         fullName_ru="Добеши" ord="2" vis="1"/>
+</root>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!--
+        Лог в базе данных.
+
+    -->
+
+    <!-- плагин модели для подключения в модель проекта -->
+    <x-plugin name="geoprocessing.utils.dblog.model"
+              path="model/model.rt">
+        <depend name="jandcode.wax.core.model"/>
+    </x-plugin>
+
+</root>

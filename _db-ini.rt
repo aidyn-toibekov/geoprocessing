@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <db name="default"
+        host="localhost"
+        dbdriver="mssql"
+        database="geoprocessing"
+        username="sa"
+        password="1q2w3e4R"
+        system.database="master"
+        system.username="sa"
+        system.password="1q2w3e4R"
+    />
+
+</root>

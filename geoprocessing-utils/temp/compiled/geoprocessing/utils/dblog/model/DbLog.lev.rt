@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!-- Словарь уровней лога -->
+
+    <domain name="DbLog.lev" parent="wax.DictMemory" title="Уровень">
+        <dict/>
+        <field name="id" parent="string"/>
+        <dictdata>
+            <i id="error" text="error"/>
+            <i id="info" text="info"/>
+            <i id="warn" text="warn"/>
+        </dictdata>
+    </domain>
+
+    <!-- =================== -->
+
+    <!-- поле-ссылка на уровень логирования -->
+    <field name="f.DbLog.lev" parent="string" size="10" dict="DbLog.lev"
+           title="Уровень">
+        <js>
+            <input jsclass="Cbdict" width="large"/>
+            <column jsclass="Dict"/>
+            <datalabel jsclass="Dict"/>
+        </js>
+    </field>
+
+</root>

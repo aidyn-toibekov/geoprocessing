@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!--
+        Основные предки для полей и наборов полей
+    -->
+
+    <!-- заголовок (multilang) -->
+    <field name="f.title" parent="lang.string" size="200"
+           title="Заголовок">
+    </field>
+
+    <field name="f.doubleRound" parent="double">
+        <js>
+            <column jsclass="Jc.column.NumberRound"/>
+        </js>
+    </field>
+
+    <!-- наименование (multilang) -->
+    <field name="f.name" parent="lang.string" size="200" req="true"
+           title="Наименование" titleShort="Наименование">
+    </field>
+
+    <!-- полное наименование -->
+    <field name="f.fullName" parent="lang.string" size="300" req="true"
+           title="Полное наименование" titleShort="Полное наименование">
+    </field>
+
+    <!-- код -->
+    <field name="f.cod" parent="string" size="12"
+           title="Код" req="true" titleShort="Код">
+	<validator name="unique"/>
+        <js>
+            <input width="large"/>
+        </js>
+    </field>
+
+    <!-- коментарий -->
+    <field name="f.cmt" parent="lang.memo"
+           title="Комментарий" titleShort="Коммент">
+        <js>
+            <column jsclass="Langflag"/>
+        </js>
+    </field>
+
+    <!-- коментарий -->
+    <field name="f.htmlText" parent="lang.memo"
+           title="Комментарий" titleShort="Коммент">
+           <!--title="Текст HTML" titleShort="html-текст">-->
+        <js>
+            <!--<column jsclass="Langflag"/>-->
+            <input jsclass="Langhtmltext" width="large"/>
+        </js>
+    </field>
+
+    <!-- начало интервала -->
+    <field name="f.dbeg" parent="date"
+           title="Начало интервала" titleShort="Начало">
+    </field>
+
+    <!-- конец интервала -->
+    <field name="f.dend" parent="date"
+           title="Конец интервала" titleShort="Конец">
+    </field>
+
+    <!-- конец интервала -->
+    <field name="f.ord" parent="long" visible="false"
+           title="Порядковый номер">
+    </field>
+
+    <!-- Обозначение -->
+    <field name="f.sign" parent="string" size="60"
+           title="Обозначение">
+    </field>
+
+    <!-- Порядковый номер -->
+    <field name="f.ord" parent="long" visible="false"
+           title="Порядковый номер">
+    </field>
+
+</root>

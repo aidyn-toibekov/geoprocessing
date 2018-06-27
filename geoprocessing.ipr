@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactManager">
+    <artifact type="exploded-war" build-on-make="true" name="wax-debug-app">
+      <output-path>$PROJECT_DIR$/out/artifacts/wax-debug-app_exploded</output-path>
+      <root id="root">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="geoprocessing-utils" />
+            <element id="module-output" name="geoprocessing-mssql" />
+            <element id="module-output" name="geoprocessing-main" />
+            <element id="module-output" name="geoprocessing-fusion" />
+            <element id="module-output" name="geoprocessing" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="library" level="module" name="commons-io" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-logging" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-vfs" module-name="geoprocessing" />
+            <element id="library" level="module" name="joda-time" module-name="geoprocessing" />
+            <element id="library" level="module" name="log4j" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-utils" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-app" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-pool" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-dbcp" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-csv" module-name="geoprocessing" />
+            <element id="library" level="module" name="javassist" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-dbm" module-name="geoprocessing" />
+            <element id="library" level="module" name="groovy" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-groovy" module-name="geoprocessing" />
+            <element id="library" level="module" name="commons-fileupload" module-name="geoprocessing" />
+            <element id="library" level="module" name="json-simple" module-name="geoprocessing" />
+            <element id="library" level="module" name="servlet-api" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-web" module-name="geoprocessing" />
+            <element id="library" level="module" name="ant-launcher" module-name="geoprocessing" />
+            <element id="library" level="module" name="ant" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-jc" module-name="geoprocessing" />
+            <element id="library" level="module" name="js-ext4" module-name="geoprocessing" />
+            <element id="library" level="module" name="derby" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-wax-core" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-bgtasks" module-name="geoprocessing" />
+            <element id="library" level="module" name="jandcode-wax-verdb" module-name="geoprocessing" />
+            <element id="library" level="module" name="jdbc-oracle" module-name="geoprocessing" />
+            <element id="library" level="module" name="jdbc-mssql" module-name="geoprocessing" />
+            <element id="library" level="module" name="junit" module-name="geoprocessing" />
+          </element>
+        </element>
+        <element id="javaee-facet-resources" facet="geoprocessing/web/Web" />
+      </root>
+    </artifact>
+  </component>
+  <component name="BuildJarProjectSettings">
+    <option name="BUILD_JARS_ON_MAKE" value="false" />
+  </component>
+  <component name="CodeStyleProjectProfileManger">
+    <option name="PROJECT_PROFILE" />
+    <option name="USE_PROJECT_LEVEL_SETTINGS" value="false" />
+  </component>
+  <component name="CodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS" />
+    <option name="USE_PER_PROJECT_SETTINGS" value="false" />
+  </component>
+  <component name="CompilerConfiguration">
+    <resourceExtensions>
+      <entry name=".+\.(properties|xml|html|dtd|tld)" />
+      <entry name=".+\.(gif|png|jpeg|jpg)" />
+    </resourceExtensions>
+    <wildcardResourcePatterns>
+      <entry name="?*.properties" />
+      <entry name="?*.xml" />
+      <entry name="?*.gif" />
+      <entry name="?*.png" />
+      <entry name="?*.jpeg" />
+      <entry name="?*.jpg" />
+      <entry name="?*.dtd" />
+      <entry name="?*.tld" />
+      <entry name="?*.txt" />
+      <entry name="?*.css" />
+      <entry name="?*.zip" />
+      <entry name="?*.xconf" />
+      <entry name="?*.js" />
+      <entry name="?*.gsp" />
+      <entry name="?*.sql" />
+      <entry name="?*.csv" />
+      <entry name="?*.json" />
+      <entry name="?*.w*" />
+      <entry name="?*.x*" />
+      <entry name="?*.r*" />
+      <entry name="?*.jc" />
+      <entry name="?*.h*" />
+      <entry name="?*.gf*" />
+    </wildcardResourcePatterns>
+  </component>
+  <component name="DependenciesAnalyzeManager">
+    <option name="myForwardDirection" value="false" />
+  </component>
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="EclipseCompilerSettings">
+    <option name="DEBUGGING_INFO" value="true" />
+    <option name="GENERATE_NO_WARNINGS" value="true" />
+    <option name="DEPRECATION" value="false" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
+    <option name="MAXIMUM_HEAP_SIZE" value="128" />
+  </component>
+  <component name="EclipseEmbeddedCompilerSettings">
+    <option name="DEBUGGING_INFO" value="true" />
+    <option name="GENERATE_NO_WARNINGS" value="true" />
+    <option name="DEPRECATION" value="false" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
+    <option name="MAXIMUM_HEAP_SIZE" value="128" />
+  </component>
+  <component name="ErrorOptionsConfigurable.UI">
+    <option name="proportions">
+      <SplitterProportionsDataImpl />
+    </option>
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="PRINT_LINE_NUMBERS" value="false" />
+    <option name="OPEN_IN_BROWSER" value="false" />
+    <option name="OUTPUT_DIRECTORY" />
+  </component>
+  <component name="IdProvider" IDEtalkID="4AE419829FDFDDE3EBFF0AAE16AF36BF" />
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0" is_locked="false">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" />
+    <option name="OPTION_SCOPE" value="protected" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
+    <option name="OPTION_SEPARATE_INDEX" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
+    <option name="OTHER_OPTIONS" value="" />
+    <option name="HEAP_SIZE" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+  </component>
+  <component name="JikesSettings">
+    <option name="JIKES_PATH" value="" />
+    <option name="DEBUGGING_INFO" value="true" />
+    <option name="DEPRECATION" value="true" />
+    <option name="GENERATE_NO_WARNINGS" value="false" />
+    <option name="IS_EMACS_ERRORS_MODE" value="true" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
+  </component>
+  <component name="LogConsolePreferences">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFileVersion" converted="true" />
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://C:\PROJECTS\geoprocessing\geoprocessing-utils/geoprocessing-utils.iml" filepath="C:\PROJECTS\geoprocessing\geoprocessing-utils/geoprocessing-utils.iml" />
+      <module fileurl="file://C:\PROJECTS\geoprocessing\geoprocessing-mssql/geoprocessing-mssql.iml" filepath="C:\PROJECTS\geoprocessing\geoprocessing-mssql/geoprocessing-mssql.iml" />
+      <module fileurl="file://C:\PROJECTS\geoprocessing\geoprocessing-main/geoprocessing-main.iml" filepath="C:\PROJECTS\geoprocessing\geoprocessing-main/geoprocessing-main.iml" />
+      <module fileurl="file://C:\PROJECTS\geoprocessing\geoprocessing-fusion/geoprocessing-fusion.iml" filepath="C:\PROJECTS\geoprocessing\geoprocessing-fusion/geoprocessing-fusion.iml" />
+      <module fileurl="file://C:\PROJECTS\geoprocessing/geoprocessing.iml" filepath="C:\PROJECTS\geoprocessing/geoprocessing.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootConfigurable.UI">
+    <option name="proportions">
+      <SplitterProportionsDataImpl>
+        <option name="proportions">
+          <collection>
+            <option value="0.5" />
+          </collection>
+        </option>
+      </SplitterProportionsDataImpl>
+    </option>
+    <option name="lastEditedConfigurable" value="Project 'Default (Template) Project'" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="wax-run" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="wax-tomcat" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/wax/" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="wax-debug-app">
+          <settings>
+            <option name="CONTEXT_PATH" value="/wax" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_myapp1_3" />
+      </server-settings>
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55525" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="run" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="%IDEA_RUN:TOMCAT_HOME%/bin/catalina.bat" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="stop" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="wax-debug-app" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="ResourceManagerContainer">
+    <option name="myResourceBundles">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+  </component>
+  <component name="RmicSettings">
+    <option name="IS_EANABLED" value="false" />
+    <option name="DEBUGGING_INFO" value="true" />
+    <option name="GENERATE_NO_WARNINGS" value="false" />
+    <option name="GENERATE_IIOP_STUBS" value="false" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
+  </component>
+  <component name="ScopeChooserConfigurable.UI">
+    <option name="proportions">
+      <SplitterProportionsDataImpl />
+    </option>
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myVersion" value="123" />
+  </component>
+  <component name="SvnChangesBrowserSettings">
+    <option name="USE_AUTHOR_FIELD" value="true" />
+    <option name="AUTHOR" value="" />
+    <option name="LOCATION" value="" />
+    <option name="USE_PROJECT_SETTINGS" value="true" />
+    <option name="USE_ALTERNATE_LOCATION" value="false" />
+  </component>
+  <component name="VCS.FileViewConfiguration">
+    <option name="SELECTED_STATUSES" value="DEFAULT" />
+    <option name="SELECTED_COLUMNS" value="DEFAULT" />
+    <option name="SHOW_FILTERS" value="true" />
+    <option name="CUSTOMIZE_VIEW" value="true" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="true" />
+  </component>
+  <component name="WebServicesPlugin" addRequiredLibraries="true" />
+  <component name="com.intellij.ide.util.scopeChooser.ScopeChooserConfigurable" proportions="" version="1">
+    <option name="myLastEditedConfigurable" />
+  </component>
+  <component name="com.intellij.jsf.UserDefinedFacesConfigs">
+    <option name="USER_DEFINED_CONFIGS">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+  </component>
+</project>

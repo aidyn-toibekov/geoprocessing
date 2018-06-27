@@ -1,0 +1,3495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <app debug="true" appdir="C:\PROJECTS\geoprocessing" id="jandcode.app"
+         title="Wax App">title="Geoprocessing"
+        
+        <datadir>
+            <root path=""/>
+        </datadir>
+    </app>
+    <module>
+        <jandcode.app
+                      path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-app.jar!/jandcode/app"/>
+        <jandcode.lang
+                       path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-app.jar!/jandcode/lang"/>
+        <jandcode.auth
+                       path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-app.jar!/jandcode/auth"/>
+        <jandcode.dbm
+                      path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-dbm.jar!/jandcode/dbm">
+            <depend>
+                <jandcode.auth/>
+                <jandcode.lang/>
+            </depend>
+        </jandcode.dbm>
+        <jandcode.dbm.db.derby
+                               path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-dbm.jar!/jandcode/dbm/db/derby">
+            <depend>
+                <jandcode.dbm/>
+            </depend>
+        </jandcode.dbm.db.derby>
+        <jandcode.groovy
+                         path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-groovy.jar!/jandcode/groovy"/>
+        <jandcode.web
+                      path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-web.jar!/jandcode/web">
+            <depend>
+                <jandcode.groovy/>
+                <jandcode.auth/>
+            </depend>
+        </jandcode.web>
+        <jandcode.wax.core
+                           path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-wax-core.jar!/jandcode/wax/core">
+            <depend>
+                <jandcode.auth/>
+                <jandcode.lang/>
+                <jandcode.dbm/>
+                <jandcode.dbm.db.derby/>
+                <jandcode.web/>
+            </depend>
+        </jandcode.wax.core>
+        <jandcode.wax.verdb
+                            path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-wax-verdb.jar!/jandcode/wax/verdb">
+            <depend>
+                <jandcode.wax.core/>
+            </depend>
+        </jandcode.wax.verdb>
+        <jandcode.dbm.db.oracle
+                                path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-dbm.jar!/jandcode/dbm/db/oracle">
+            <depend>
+                <jandcode.dbm/>
+            </depend>
+        </jandcode.dbm.db.oracle>
+        <jandcode.dbm.db.mysql
+                               path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-dbm.jar!/jandcode/dbm/db/mysql">
+            <depend>
+                <jandcode.dbm/>
+            </depend>
+        </jandcode.dbm.db.mysql>
+        <geoprocessing.utils
+                             path="jar:file:///C:/PROJECTS/geoprocessing/geoprocessing-utils/temp/lib/geoprocessing-utils.jar!/geoprocessing/utils">
+            <depend>
+                <jandcode.wax.core/>
+                <jandcode.dbm.db.oracle/>
+            </depend>
+        </geoprocessing.utils>
+        <geoprocessing.mssql
+                             path="jar:file:///C:/PROJECTS/geoprocessing/geoprocessing-mssql/temp/lib/geoprocessing-mssql.jar!/geoprocessing/mssql">
+            <depend>
+                <jandcode.dbm/>
+            </depend>
+        </geoprocessing.mssql>
+        <geoprocessing.main
+                            path="jar:file:///C:/PROJECTS/geoprocessing/geoprocessing-main/temp/lib/geoprocessing-main.jar!/geoprocessing/main">
+            <depend>
+                <jandcode.lang/>
+                <jandcode.auth/>
+                <jandcode.wax.core/>
+                <jandcode.wax.verdb/>
+                <jandcode.dbm.db.oracle/>
+                <jandcode.dbm.db.mysql/>
+                <geoprocessing.utils/>
+                <geoprocessing.mssql/>
+            </depend>
+        </geoprocessing.main>
+        <jandcode.wax.tst
+                          path="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-wax-core.jar!/jandcode/wax/tst">
+            <depend>
+                <jandcode.wax.core/>
+            </depend>
+        </jandcode.wax.tst>
+    </module>
+    <service>
+        <jandcode.app.ReflectService
+                                     class="jandcode.app.impl.ReflectServiceImpl"/>
+        <jandcode.app.ErrorService class="jandcode.app.impl.ErrorServiceImpl"/>
+        <jandcode.app.ReloadService class="jandcode.app.impl.ReloadServiceImpl"/>
+        <jandcode.app.DataDirService
+                                     class="jandcode.app.impl.DataDirServiceImpl"/>
+        <jandcode.lang.LangService class="jandcode.lang.impl.LangServiceImpl"/>
+        <jandcode.auth.AuthService class="jandcode.auth.impl.AuthServiceImpl"/>
+        <jandcode.dbm.ModelService class="jandcode.dbm.ModelService"/>
+        <jandcode.groovy.GroovyService
+                                       class="jandcode.groovy.impl.GroovyServiceImpl">
+            <compiler>
+                <default/>
+            </compiler>
+        </jandcode.groovy.GroovyService>
+        <jandcode.web.WebService class="jandcode.web.WebService">
+            <service>
+                <jandcode.web.ResourceService
+                                              class="jandcode.web.ResourceService"/>
+                <jandcode.web.ActionService class="jandcode.web.ActionService"/>
+                <jandcode.web.TmlService class="jandcode.web.TmlService"/>
+                <jandcode.web.FilterService class="jandcode.web.FilterService"/>
+                <jandcode.web.RenderService class="jandcode.web.RenderService"/>
+            </service>
+        </jandcode.web.WebService>
+        <jandcode.wax.core.utils.WaxAppService
+                                               class="jandcode.wax.core.utils.WaxAppService"/>
+        <jandcode.wax.core.utils.json.WaxJsonService
+                                                     class="jandcode.wax.core.utils.json.WaxJsonService">
+            <jstype>
+                <null type=""/>
+                <boolean type="java.lang.Boolean"/>
+                <number type="java.lang.Double"/>
+                <string type="java.lang.String"/>
+                <date type="org.joda.time.DateTime"/>
+                <list type="java.util.List"/>
+                <map type="java.util.Map"/>
+                <datastore type="jandcode.dbm.data.DataStore"/>
+                <datarec type="jandcode.dbm.data.DataRecord"/>
+                <databox type="jandcode.dbm.data.DataBox"/>
+                <datatree type=""/>
+            </jstype>
+            <shorttype>
+                <string class="java.lang.String"/>
+                <int class="java.lang.Integer"/>
+                <long class="java.lang.Long"/>
+                <date class="org.joda.time.DateTime"/>
+                <datetime class="org.joda.time.DateTime"/>
+                <map class="java.util.Map"/>
+                <list class="java.util.List"/>
+            </shorttype>
+            <type>
+                <null tojson="jandcode.wax.core.utils.json.convertor.Null_to"
+                      jsontype="null"/>
+                <java.lang.CharSequence
+                                        tojson="jandcode.wax.core.utils.json.convertor.String_to"
+                                        jsontype="string">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <date
+                              class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                    </from>
+                </java.lang.CharSequence>
+                <java.lang.String parent="/type/java.lang.CharSequence"
+                                  fromstring="jandcode.wax.core.utils.json.convertor.String_fromString"
+                                  tojson="jandcode.wax.core.utils.json.convertor.String_to"
+                                  jsontype="string">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <date
+                              class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.String_from"/>
+                    </from>
+                </java.lang.String>
+                <java.lang.Boolean
+                                   tojson="jandcode.wax.core.utils.json.convertor.Boolean_to"
+                                   jsontype="boolean">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                    </from>
+                </java.lang.Boolean>
+                <boolean parent="/type/java.lang.Boolean" jsontype="boolean"
+                         tojson="jandcode.wax.core.utils.json.convertor.Boolean_to">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Boolean_from"/>
+                    </from>
+                </boolean>
+                <java.lang.Integer
+                                   fromstring="jandcode.wax.core.utils.json.convertor.Int_fromString"
+                                   tojson="jandcode.wax.core.utils.json.convertor.Int_to"
+                                   jsontype="number">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                    </from>
+                </java.lang.Integer>
+                <int parent="/type/java.lang.Integer"
+                     fromstring="jandcode.wax.core.utils.json.convertor.Int_fromString"
+                     tojson="jandcode.wax.core.utils.json.convertor.Int_to"
+                     jsontype="number">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Int_from"/>
+                    </from>
+                </int>
+                <java.lang.Long
+                                fromstring="jandcode.wax.core.utils.json.convertor.Long_fromString"
+                                tojson="jandcode.wax.core.utils.json.convertor.Long_to"
+                                jsontype="number">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                    </from>
+                </java.lang.Long>
+                <long parent="/type/java.lang.Long"
+                      fromstring="jandcode.wax.core.utils.json.convertor.Long_fromString"
+                      tojson="jandcode.wax.core.utils.json.convertor.Long_to"
+                      jsontype="number">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Long_from"/>
+                    </from>
+                </long>
+                <java.lang.Double
+                                  tojson="jandcode.wax.core.utils.json.convertor.Double_to"
+                                  jsontype="number">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                    </from>
+                </java.lang.Double>
+                <double parent="/type/java.lang.Double" jsontype="number"
+                        tojson="jandcode.wax.core.utils.json.convertor.Double_to">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <number
+                                class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                        <boolean
+                                 class="jandcode.wax.core.utils.json.convertor.Double_from"/>
+                    </from>
+                </double>
+                <org.joda.time.DateTime
+                                        fromstring="jandcode.wax.core.utils.json.convertor.DateTime_fromString"
+                                        tojson="jandcode.wax.core.utils.json.convertor.DateTime_to"
+                                        jsontype="date">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.DateTime_from"/>
+                        <string
+                                class="jandcode.wax.core.utils.json.convertor.DateTime_from"/>
+                        <date
+                              class="jandcode.wax.core.utils.json.convertor.DateTime_from"/>
+                    </from>
+                </org.joda.time.DateTime>
+                <java.util.List
+                                fromstring="jandcode.wax.core.utils.json.convertor.List_fromString"
+                                tojson="jandcode.wax.core.utils.json.convertor.List_to"
+                                jsontype="list">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.List_from"/>
+                        <list
+                              class="jandcode.wax.core.utils.json.convertor.List_from"/>
+                    </from>
+                </java.util.List>
+                <java.util.Map
+                               fromstring="jandcode.wax.core.utils.json.convertor.Map_fromString"
+                               tojson="jandcode.wax.core.utils.json.convertor.Map_to"
+                               jsontype="map">
+                    <from>
+                        <null
+                              class="jandcode.wax.core.utils.json.convertor.Map_from"/>
+                        <map
+                             class="jandcode.wax.core.utils.json.convertor.Map_from"/>
+                        <datastore
+                                   class="jandcode.wax.core.utils.json.convertor.Map_from_datastore"/>
+                        <datarec
+                                 class="jandcode.wax.core.utils.json.convertor.Map_from_datastore"/>
+                    </from>
+                </java.util.Map>
+                <jandcode.dbm.data.DataStore
+                                             tojson="jandcode.wax.core.utils.json.convertor.DataStore_to"
+                                             jsontype="datastore">
+                    <from>
+                        <datastore
+                                   class="jandcode.wax.core.utils.json.convertor.DataStore_from"/>
+                        <datarec
+                                 class="jandcode.wax.core.utils.json.convertor.DataStore_from"/>
+                    </from>
+                </jandcode.dbm.data.DataStore>
+                <jandcode.dbm.data.DataRecord
+                                              tojson="jandcode.wax.core.utils.json.convertor.DataRecord_to"
+                                              jsontype="datarec">
+                    <from>
+                        <datastore
+                                   class="jandcode.wax.core.utils.json.convertor.DataRecord_from"/>
+                        <datarec
+                                 class="jandcode.wax.core.utils.json.convertor.DataRecord_from"/>
+                    </from>
+                </jandcode.dbm.data.DataRecord>
+                <jandcode.dbm.data.DataTreeNode
+                                                tojson="jandcode.wax.core.utils.json.convertor.DataTreeNode_to"
+                                                jsontype="datatree"/>
+                <jandcode.dbm.data.DataBox
+                                           tojson="jandcode.wax.core.utils.json.convertor.DataBox_to"
+                                           jsontype="databox">
+                    <from>
+                        <databox
+                                 class="jandcode.wax.core.utils.json.convertor.DataBox_from"/>
+                    </from>
+                </jandcode.dbm.data.DataBox>
+                <jandcode.wax.core.utils.gf.SGridDataStore
+                                                           tojson="jandcode.wax.core.utils.gf.json.SGridDataStore_to"
+                                                           jsontype="datastore"/>
+                <jandcode.wax.core.utils.gf.STreeDataStore
+                                                           tojson="jandcode.wax.core.utils.gf.json.SGridDataStore_to"
+                                                           jsontype="datatreestore"/>
+            </type>
+        </jandcode.wax.core.utils.json.WaxJsonService>
+        <jandcode.wax.core.utils.theme.WaxThemeService
+                                                       class="jandcode.wax.core.utils.theme.impl.WaxThemeServiceImpl"/>
+        <jandcode.wax.core.utils.upload.WaxUploadService
+                                                         class="jandcode.wax.core.utils.upload.WaxUploadService"/>
+        <jandcode.wax.core.utils.gf.GfService
+                                              class="jandcode.wax.core.utils.gf.impl.GfServiceImpl"/>
+    </service>
+    <error>
+        <formatter>
+            <default/>
+            <log showSource="true" showStack="true"/>
+        </formatter>
+    </error>
+    <lang default="ru">
+        <lang>
+            <ru weight="10" title="Русский" enabled="true"/>
+        </lang>
+        <translate>
+            <i
+               file="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-wax-core.jar!/jandcode/wax/core/lang-data.xml"/>
+            <i
+               file="jar:file:///C:/PROJECTS/jandcode-core-bin/lib/jandcode-wax-core.jar!/jandcode/wax/core/lang-data-en.xml"
+               lang="en"/>
+        </translate>
+    </lang>
+    <custom>
+        <service>
+            <genid.simple class="jandcode.dbm.db.jdbc.SimpleGenIdService">
+                <ddl>
+                    <create
+                            file="res:jandcode/dbm/db/jdbc/genid-simple-create.sql.gsp"/>
+                </ddl>
+            </genid.simple>
+        </service>
+    </custom>
+    <dbdatatype>
+        <sys class="jandcode.dbm.db.DbDatatype"/>
+    </dbdatatype>
+    <dbdriver>
+        <sys class="jandcode.dbm.db.DbDriver">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="blob" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="boolean"
+                         field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date" field="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="datetime"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="double" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="int" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="bigint" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="varchar(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="text" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="smallint"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+        </sys>
+        <jdbc parent="/dbdriver/sys" class="jandcode.dbm.db.DbDriver">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="blob" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="boolean"
+                         field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date" field="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="datetime"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="double" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="int" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="bigint" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="varchar(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="text" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="smallint"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+            <service>
+                <jandcode.dbm.db.ConnectionService
+                                                   validationQuery.mysql="select 1"
+                                                   validationQuery.oracle="select 1 from dual"
+                                                   class="jandcode.dbm.db.impl.ConnectionServiceImpl"/>
+                <jandcode.dbm.db.MetaDataService
+                                                 class="jandcode.dbm.db.jdbc.JdbcMetaDataService"/>
+                <jandcode.dbm.db.GenIdService
+                                              parent="/custom/service/genid.simple"
+                                              class="jandcode.dbm.db.jdbc.SimpleGenIdService">
+                    <ddl>
+                        <create
+                                file="res:jandcode/dbm/db/jdbc/genid-simple-create.sql.gsp"/>
+                    </ddl>
+                </jandcode.dbm.db.GenIdService>
+                <jandcode.dbm.db.SqlBuilderService
+                                                   class="jandcode.dbm.db.SqlBuilderService"/>
+                <jandcode.dbm.db.DbManagerService
+                                                  class="jandcode.dbm.db.jdbc.JdbcDbManagerService"/>
+                <jandcode.dbm.sqlfilter.SqlFilterService
+                                                         sqlfilter="jandcode.dbm.sqlfilter.impl.SqlFilterImpl"
+                                                         class="jandcode.dbm.sqlfilter.impl.SqlFilterServiceImpl"/>
+            </service>
+            <ddl>
+                <create file="res:jandcode/dbm/db/jdbc/dbdriver-create.sql.gsp"
+                        type="create"/>
+                <create-references
+                                   file="res:jandcode/dbm/db/jdbc/dbdriver-create-references.sql.gsp"
+                                   type="create-references"/>
+                <drop-references
+                                 file="res:jandcode/dbm/db/jdbc/dbdriver-drop-references.sql.gsp"
+                                 type="drop-references"/>
+            </ddl>
+        </jdbc>
+        <derby parent="/dbdriver/jdbc"
+               jdbcDriverClass="org.apache.derby.jdbc.EmbeddedDriver"
+               class="jandcode.dbm.db.derby.DerbyDbDriver"
+               url="jdbc:derby:${database}">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="blob" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="boolean"
+                         field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date" field="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="timestamp"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="double" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="integer" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="bigint" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="varchar(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="clob" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="smallint"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+            <service>
+                <jandcode.dbm.db.ConnectionService
+                                                   validationQuery.mysql="select 1"
+                                                   validationQuery.oracle="select 1 from dual"
+                                                   class="jandcode.dbm.db.impl.ConnectionServiceImpl"/>
+                <jandcode.dbm.db.MetaDataService
+                                                 class="jandcode.dbm.db.jdbc.JdbcMetaDataService"/>
+                <jandcode.dbm.db.GenIdService
+                                              parent="/custom/service/genid.simple"
+                                              class="jandcode.dbm.db.jdbc.SimpleGenIdService">
+                    <ddl>
+                        <create
+                                file="res:jandcode/dbm/db/jdbc/genid-simple-create.sql.gsp"/>
+                    </ddl>
+                </jandcode.dbm.db.GenIdService>
+                <jandcode.dbm.db.SqlBuilderService
+                                                   class="jandcode.dbm.db.SqlBuilderService"/>
+                <jandcode.dbm.db.DbManagerService
+                                                  class="jandcode.dbm.db.derby.DerbyDbManagerService"/>
+                <jandcode.dbm.sqlfilter.SqlFilterService
+                                                         sqlfilter="jandcode.dbm.db.derby.DerbySqlFilter"
+                                                         class="jandcode.dbm.sqlfilter.impl.SqlFilterServiceImpl"/>
+                <jandcode.wax.verdb.dbdriver.VerdbDbSupportService
+                                                                   class="jandcode.wax.verdb.dbdriver.DerbyVerdbDbSupportService"/>
+            </service>
+            <ddl>
+                <create file="res:jandcode/dbm/db/jdbc/dbdriver-create.sql.gsp"
+                        type="create"/>
+                <create-references
+                                   file="res:jandcode/dbm/db/jdbc/dbdriver-create-references.sql.gsp"
+                                   type="create-references"/>
+                <drop-references
+                                 file="res:jandcode/dbm/db/jdbc/dbdriver-drop-references.sql.gsp"
+                                 type="drop-references"/>
+            </ddl>
+        </derby>
+        <oracle parent="/dbdriver/jdbc"
+                jdbcDriverClass="oracle.jdbc.driver.OracleDriver"
+                class="jandcode.dbm.db.oracle.OracleDbDriver"
+                url="jdbc:oracle:thin:@${host}:1521:${database}">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="blob" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="number(1)"
+                         field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_datetime" field="date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="date"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="number" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="number(10)" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="number(19)" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="nvarchar2(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="clob" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="number(5)"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+            <service>
+                <jandcode.dbm.db.ConnectionService
+                                                   validationQuery.mysql="select 1"
+                                                   validationQuery.oracle="select 1 from dual"
+                                                   class="jandcode.dbm.db.impl.ConnectionServiceImpl"/>
+                <jandcode.dbm.db.MetaDataService
+                                                 class="jandcode.dbm.db.oracle.OracleMetaDataService"/>
+                <jandcode.dbm.db.GenIdService
+                                              parent="/custom/service/genid.simple"
+                                              class="jandcode.dbm.db.oracle.OracleGenIdService">
+                    <ddl>
+                        <create
+                                file="res:jandcode/dbm/db/oracle/genid-seq-create.sql.gsp"/>
+                    </ddl>
+                </jandcode.dbm.db.GenIdService>
+                <jandcode.dbm.db.SqlBuilderService
+                                                   class="jandcode.dbm.db.SqlBuilderService"/>
+                <jandcode.dbm.db.DbManagerService
+                                                  class="jandcode.dbm.db.oracle.OracleDbManagerService"/>
+                <jandcode.dbm.sqlfilter.SqlFilterService
+                                                         sqlfilter="jandcode.dbm.db.oracle.OracleSqlFilter"
+                                                         class="jandcode.dbm.sqlfilter.impl.SqlFilterServiceImpl"/>
+                <jandcode.wax.verdb.dbdriver.VerdbDbSupportService
+                                                                   class="jandcode.wax.verdb.dbdriver.OracleVerdbDbSupportService"/>
+            </service>
+            <ddl>
+                <create file="res:jandcode/dbm/db/jdbc/dbdriver-create.sql.gsp"
+                        type="create"/>
+                <create-references
+                                   file="res:jandcode/dbm/db/jdbc/dbdriver-create-references.sql.gsp"
+                                   type="create-references"/>
+                <drop-references
+                                 file="res:jandcode/dbm/db/jdbc/dbdriver-drop-references.sql.gsp"
+                                 type="drop-references"/>
+            </ddl>
+        </oracle>
+        <mysql parent="/dbdriver/jdbc" jdbcDriverClass="com.mysql.jdbc.Driver"
+               class="jandcode.dbm.db.mysql.MysqlDbDriver"
+               url="jdbc:mysql://${host}/?useUnicode=true&amp;characterEncoding=UTF-8">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="blob" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="boolean"
+                         field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date" field="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="datetime"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="double" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="int" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="bigint" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="varchar(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="text" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="smallint"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+            <service>
+                <jandcode.dbm.db.ConnectionService
+                                                   validationQuery.mysql="select 1"
+                                                   validationQuery.oracle="select 1 from dual"
+                                                   class="jandcode.dbm.db.impl.ConnectionServiceImpl"/>
+                <jandcode.dbm.db.MetaDataService
+                                                 class="jandcode.dbm.db.jdbc.JdbcMetaDataService"/>
+                <jandcode.dbm.db.GenIdService
+                                              parent="/custom/service/genid.simple"
+                                              class="jandcode.dbm.db.jdbc.SimpleGenIdService">
+                    <ddl>
+                        <create
+                                file="res:jandcode/dbm/db/jdbc/genid-simple-create.sql.gsp"/>
+                    </ddl>
+                </jandcode.dbm.db.GenIdService>
+                <jandcode.dbm.db.SqlBuilderService
+                                                   class="jandcode.dbm.db.SqlBuilderService"/>
+                <jandcode.dbm.db.DbManagerService
+                                                  class="jandcode.dbm.db.mysql.MysqlDbManagerService"/>
+                <jandcode.dbm.sqlfilter.SqlFilterService
+                                                         sqlfilter="jandcode.dbm.sqlfilter.impl.SqlFilterImpl"
+                                                         class="jandcode.dbm.sqlfilter.impl.SqlFilterServiceImpl"/>
+                <jandcode.wax.verdb.dbdriver.VerdbDbSupportService
+                                                                   class="jandcode.wax.verdb.dbdriver.MysqlVerdbDbSupportService"/>
+            </service>
+            <ddl>
+                <create file="res:jandcode/dbm/db/jdbc/dbdriver-create.sql.gsp"
+                        type="create"/>
+                <create-references
+                                   file="res:jandcode/dbm/db/jdbc/dbdriver-create-references.sql.gsp"
+                                   type="create-references"/>
+                <drop-references
+                                 file="res:jandcode/dbm/db/jdbc/dbdriver-drop-references.sql.gsp"
+                                 type="drop-references"/>
+            </ddl>
+        </mysql>
+        <mssql parent="/dbdriver/jdbc"
+               jdbcDriverClass="net.sourceforge.jtds.jdbc.Driver"
+               class="geoprocessing.mssql.MssqlDbDriver"
+               url="jdbc:jtds:sqlserver://${host};instance=${instance};databaseName=${database};">
+            <dbdatatype>
+                <blob parent="/dbdatatype/sys" sqltype="image" field="blob"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_blob"/>
+                <boolean parent="/dbdatatype/sys" sqltype="bit" field="boolean"
+                         class="jandcode.dbm.db.impl.dbt.Dbt_boolean"/>
+                <date parent="/dbdatatype/sys" sqltype="date" field="date"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_date"/>
+                <datetime parent="/dbdatatype/sys" sqltype="datetime"
+                          field="datetime"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_datetime"/>
+                <double parent="/dbdatatype/sys" sqltype="float" field="double"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_double"/>
+                <int parent="/dbdatatype/sys" sqltype="int" field="int"
+                     class="jandcode.dbm.db.impl.dbt.Dbt_int"/>
+                <long parent="/dbdatatype/sys" sqltype="bigint" field="long"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_long"/>
+                <string parent="/dbdatatype/sys" sqltype="varchar(${size})"
+                        field="string"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_string"/>
+                <memo parent="/dbdatatype/sys" sqltype="text" field="memo"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_memo"/>
+                <smallint parent="/dbdatatype/sys" sqltype="smallint"
+                          field="int"
+                          class="jandcode.dbm.db.impl.dbt.Dbt_smallint"/>
+                <null parent="/dbdatatype/sys" sqltype="NULL" field="object"
+                      class="jandcode.dbm.db.impl.dbt.Dbt_null"/>
+                <object parent="/dbdatatype/sys" sqltype="OBJECT" field="object"
+                        class="jandcode.dbm.db.impl.dbt.Dbt_object"/>
+            </dbdatatype>
+            <valueclass>
+                <null dbdatatype="null"/>
+                <int dbdatatype="int"/>
+                <java.lang.Integer dbdatatype="int"/>
+                <short dbdatatype="int"/>
+                <java.lang.Short dbdatatype="int"/>
+                <long dbdatatype="long"/>
+                <java.lang.Long dbdatatype="long"/>
+                <double dbdatatype="double"/>
+                <java.lang.Double dbdatatype="double"/>
+                <boolean dbdatatype="boolean"/>
+                <java.lang.Boolean dbdatatype="boolean"/>
+                <byte-ARRAY javaclass="byte[]" dbdatatype="blob"/>
+                <org.joda.time.DateTime dbdatatype="datetime"/>
+                <java.lang.CharSequence dbdatatype="string"/>
+            </valueclass>
+            <service>
+                <jandcode.dbm.db.ConnectionService
+                                                   validationQuery.mysql="select 1"
+                                                   validationQuery.oracle="select 1 from dual"
+                                                   class="jandcode.dbm.db.impl.ConnectionServiceImpl"/>
+                <jandcode.dbm.db.MetaDataService
+                                                 class="jandcode.dbm.db.jdbc.JdbcMetaDataService"/>
+                <jandcode.dbm.db.GenIdService
+                                              parent="/custom/service/genid.simple"
+                                              class="jandcode.dbm.db.jdbc.SimpleGenIdService">
+                    <ddl>
+                        <create
+                                file="res:jandcode/dbm/db/jdbc/genid-simple-create.sql.gsp"/>
+                    </ddl>
+                </jandcode.dbm.db.GenIdService>
+                <jandcode.dbm.db.SqlBuilderService
+                                                   class="jandcode.dbm.db.SqlBuilderService"/>
+                <jandcode.dbm.db.DbManagerService
+                                                  class="geoprocessing.mssql.MssqlDbManagerService"/>
+                <jandcode.dbm.sqlfilter.SqlFilterService
+                                                         sqlfilter="geoprocessing.mssql.MssqlSqlFilter"
+                                                         class="jandcode.dbm.sqlfilter.impl.SqlFilterServiceImpl"/>
+            </service>
+            <ddl>
+                <create file="res:jandcode/dbm/db/jdbc/dbdriver-create.sql.gsp"
+                        type="create"/>
+                <create-references
+                                   file="res:jandcode/dbm/db/jdbc/dbdriver-create-references.sql.gsp"
+                                   type="create-references"/>
+                <drop-references
+                                 file="res:jandcode/dbm/db/jdbc/dbdriver-drop-references.sql.gsp"
+                                 type="drop-references"/>
+            </ddl>
+        </mssql>
+    </dbdriver>
+    <db>
+        <sys class="jandcode.dbm.db.DbSource"/>
+        <default system.username="sa" database="geoprocessing" dbdriver="mssql"
+                 password="1q2w3e4R" host="localhost" system.database="master"
+                 username="sa" system.password="1q2w3e4R"/>
+    </db>
+    <model>
+        <sys class="jandcode.dbm.Model">
+            <service>
+                <jandcode.dbm.dict.DictService
+                                               class="jandcode.dbm.dict.impl.DictServiceImpl"/>
+                <jandcode.dbm.dao.DaoService class="jandcode.dbm.dao.DaoService"/>
+                <jandcode.dbm.validate.ValidateService
+                                                       class="jandcode.dbm.validate.ValidateServiceImpl"/>
+                <jandcode.dbm.cache.CacheService
+                                                 class="jandcode.dbm.cache.impl.CacheServiceImpl"/>
+                <jandcode.dbm.dblang.DblangService
+                                                   class="jandcode.dbm.dblang.impl.DblangServiceImpl"/>
+                <jandcode.dbm.dbpostcreate.DbPostCreateService
+                                                               class="jandcode.dbm.dbpostcreate.impl.DbPostCreateServiceImpl"/>
+            </service>
+            <field>
+                <sys class="jandcode.dbm.Field"/>
+                <blob parent="/field/sys" class="jandcode.dbm.field.BlobField"/>
+                <boolean parent="/field/sys"
+                         class="jandcode.dbm.field.BooleanField"/>
+                <date parent="/field/sys" class="jandcode.dbm.field.DateField"/>
+                <datetime parent="/field/sys"
+                          class="jandcode.dbm.field.DateTimeField"/>
+                <double parent="/field/sys"
+                        class="jandcode.dbm.field.DoubleField"/>
+                <int parent="/field/sys" class="jandcode.dbm.field.IntField"/>
+                <long parent="/field/sys" class="jandcode.dbm.field.LongField"/>
+                <ref parent="/field/sys" class="jandcode.dbm.field.RefField"/>
+                <string parent="/field/sys"
+                        class="jandcode.dbm.field.StringField"/>
+                <object parent="/field/sys" class="jandcode.dbm.Field"/>
+                <memo parent="/field/string" dbdatatype="memo"
+                      class="jandcode.dbm.field.StringField"/>
+                <id parent="/field/long" class="jandcode.dbm.field.LongField"/>
+                <password parent="/field/string" size="32"
+                          class="jandcode.dbm.field.StringField"/>
+                <uniid parent="/field/long"
+                       class="jandcode.dbm.field.UniIdField"/>
+                <null parent="/field/sys" class="jandcode.dbm.field.NullField"/>
+                <lang.string parent="/field/sys" realfield="string"
+                             class="geoprocessing.main.model.sys.LangString2Field">
+                    <field>
+                        <real parent="/field/string"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </lang.string>
+                <lang.memo parent="/field/lang.string" realfield="memo"
+                           class="geoprocessing.main.model.sys.LangString2Field">
+                    <field>
+                        <real parent="/field/memo"
+                              class="jandcode.dbm.field.StringField"
+                              dbdatatype="memo"/>
+                    </field>
+                </lang.memo>
+            </field>
+            <domain>
+                <sys tag.dao="" tag.dict="" tag.db="" tag.dbview=""
+                     abstract="false" class="jandcode.dbm.Domain"
+                     tag.dataloader="">
+                    <ref parent="/field/ref" ref="sys"
+                         class="jandcode.dbm.field.RefField"/>
+                </sys>
+                <id parent="/domain/sys" tag.dao="" tag.dict="" tag.db=""
+                    tag.dbview="" abstract="false" tag.dataloader=""
+                    class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="id"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                    </field>
+                </id>
+            </domain>
+            <dataloader>
+                <csv class="jandcode.dbm.dataloader.CsvDataLoader"/>
+                <xml class="jandcode.dbm.dataloader.XmlDataLoader"/>
+                <xmltree class="jandcode.dbm.dataloader.XmltreeDataLoader"/>
+                <rt class="jandcode.dbm.dataloader.RtDataLoader"/>
+                <random class="jandcode.dbm.dataloader.RandomDataLoader">
+                    <rnd>
+                        <null class="jandcode.dbm.dataloader.rnd.NullRnd"/>
+                        <id class="jandcode.dbm.dataloader.rnd.IdRnd"/>
+                        <blob class="jandcode.dbm.dataloader.rnd.BlobRnd"/>
+                        <boolean class="jandcode.dbm.dataloader.rnd.BooleanRnd"/>
+                        <date class="jandcode.dbm.dataloader.rnd.DateRnd"/>
+                        <datetime
+                                  class="jandcode.dbm.dataloader.rnd.DateTimeRnd"/>
+                        <double class="jandcode.dbm.dataloader.rnd.DoubleRnd"/>
+                        <int class="jandcode.dbm.dataloader.rnd.IntRnd"/>
+                        <long class="jandcode.dbm.dataloader.rnd.LongRnd"/>
+                        <memo class="jandcode.dbm.dataloader.rnd.MemoRnd"/>
+                        <string class="jandcode.dbm.dataloader.rnd.StringRnd"/>
+                        <lang.string
+                                     class="jandcode.dbm.dataloader.rnd.LangStringRnd"/>
+                    </rnd>
+                    <field>
+                        <id rnd="id"/>
+                    </field>
+                </random>
+            </dataloader>
+            <validator>
+                <record class="jandcode.dbm.validate.RecordValidator"/>
+                <delref class="jandcode.dbm.validate.DelrefValidator"/>
+                <field class="jandcode.dbm.validate.FieldValidator"/>
+                <req class="jandcode.dbm.validate.ReqValidator"/>
+                <notnull class="jandcode.dbm.validate.NotNullValidator"/>
+                <unique class="jandcode.dbm.validate.UniqueValidator"/>
+                <date.todayLess
+                                class="jandcode.dbm.validate.DateTodayLessValidator"/>
+            </validator>
+            <dblang default="ru">
+                <lang>
+                    <ru weight="-1" enabled="true"/>
+                </lang>
+            </dblang>
+            <sqlfilter>
+                <equal class="jandcode.dbm.sqlfilter.SqlFilter_equal"/>
+                <contains class="jandcode.dbm.sqlfilter.SqlFilter_contains"/>
+                <year class="jandcode.dbm.sqlfilter.SqlFilter_year"/>
+                <parent class="jandcode.dbm.sqlfilter.SqlFilter_parent"/>
+            </sqlfilter>
+        </sys>
+        <geoprocessing parent="/model/sys" show="true" exp="true"
+                       class="jandcode.dbm.Model">
+            <service>
+                <jandcode.dbm.dict.DictService
+                                               class="jandcode.dbm.dict.impl.DictServiceImpl"/>
+                <jandcode.dbm.dao.DaoService class="jandcode.dbm.dao.DaoService"/>
+                <jandcode.dbm.validate.ValidateService
+                                                       class="jandcode.dbm.validate.ValidateServiceImpl"/>
+                <jandcode.dbm.cache.CacheService
+                                                 class="jandcode.dbm.cache.impl.CacheServiceImpl"/>
+                <jandcode.dbm.dblang.DblangService
+                                                   class="jandcode.dbm.dblang.impl.DblangServiceImpl"/>
+                <jandcode.dbm.dbpostcreate.DbPostCreateService
+                                                               class="jandcode.dbm.dbpostcreate.impl.DbPostCreateServiceImpl"/>
+                <geoprocessing.utils.dblog.DbLogService
+                                                        class="geoprocessing.utils.dblog.impl.DbLogServiceImpl"/>
+                <geoprocessing.utils.dbinfo.DbInfoService
+                                                          class="geoprocessing.utils.dbinfo.impl.DbInfoServiceImpl"/>
+                <geoprocessing.utils.dbfilestorage.DbFileStorageService
+                                                                        class="geoprocessing.utils.dbfilestorage.impl.DbFileStorageServiceImpl"/>
+            </service>
+            <field>
+                <sys class="jandcode.dbm.Field">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="String"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </sys>
+                <blob parent="/field/sys" class="jandcode.dbm.field.BlobField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="String"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </blob>
+                <boolean parent="/field/sys"
+                         class="jandcode.dbm.field.BooleanField">
+                    <js>
+                        <column jsclass="Boolean"/>
+                        <input jsclass="Checkbox"/>
+                        <datalabel jsclass="Boolean"/>
+                    </js>
+                    <gsp>
+                        <value jsclass="boolean" type="string"/>
+                    </gsp>
+                </boolean>
+                <date parent="/field/sys" class="jandcode.dbm.field.DateField">
+                    <js>
+                        <column jsclass="Date"/>
+                        <input jsclass="Date"/>
+                        <datalabel jsclass="Date"/>
+                    </js>
+                    <gsp>
+                        <value type="date"/>
+                    </gsp>
+                </date>
+                <datetime parent="/field/sys"
+                          class="jandcode.dbm.field.DateTimeField">
+                    <js>
+                        <column jsclass="Datetime"/>
+                        <input jsclass="Datetime"/>
+                        <datalabel jsclass="Datetime"/>
+                    </js>
+                    <gsp>
+                        <value format="dd.MM.yyyy HH:mm" type="date"/>
+                    </gsp>
+                </datetime>
+                <double parent="/field/sys"
+                        class="jandcode.dbm.field.DoubleField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Number" width="small"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </double>
+                <int parent="/field/sys" class="jandcode.dbm.field.IntField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Int" width="small"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </int>
+                <long parent="/field/sys" class="jandcode.dbm.field.LongField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Int" width="small"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </long>
+                <ref parent="/field/sys" class="jandcode.dbm.field.RefField"/>
+                <string parent="/field/sys"
+                        class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="String"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </string>
+                <object parent="/field/sys" class="jandcode.dbm.Field"/>
+                <memo parent="/field/string" dbdatatype="memo"
+                      class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Memo" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </memo>
+                <id parent="/field/long" class="jandcode.dbm.field.LongField"/>
+                <password parent="/field/string" size="32"
+                          class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Password"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </password>
+                <uniid parent="/field/long"
+                       class="jandcode.dbm.field.UniIdField"/>
+                <null parent="/field/sys" class="jandcode.dbm.field.NullField"/>
+                <lang.string parent="/field/sys" realfield="string"
+                             class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langstring"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/string"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </lang.string>
+                <lang.memo parent="/field/lang.string" realfield="memo"
+                           class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langmemo" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/memo" dbdatatype="memo"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </lang.memo>
+                <upload parent="/field/sys"
+                        class="jandcode.wax.core.utils.upload.UploadField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Upload" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </upload>
+                <mupload parent="/field/sys"
+                         class="jandcode.wax.core.utils.upload.MUploadField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="MUpload" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </mupload>
+                <ref.dict parent="/field/ref"
+                          class="jandcode.dbm.field.RefField">
+                    <js>
+                        <input jsclass="Cbdict" width="large"/>
+                        <column jsclass="Dict"/>
+                        <datalabel jsclass="Dict"/>
+                    </js>
+                    <gsp>
+                        <value type="dict"/>
+                    </gsp>
+                </ref.dict>
+                <f.DbLog.lev parent="/field/string" size="10" dict="DbLog.lev"
+                             title="Уровень"
+                             class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="Dict"/>
+                        <input jsclass="Cbdict" width="large"/>
+                        <datalabel jsclass="Dict"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </f.DbLog.lev>
+                <f.title parent="/field/lang.string" size="200"
+                         title="Заголовок" realfield="string"
+                         class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langstring"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/string"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </f.title>
+                <f.doubleRound parent="/field/double"
+                               class="jandcode.dbm.field.DoubleField">
+                    <js>
+                        <column jsclass="Jc.column.NumberRound"/>
+                        <input jsclass="Number" width="small"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </f.doubleRound>
+                <f.name parent="/field/lang.string" size="200"
+                        titleShort="Наименование" title="Наименование"
+                        req="true" realfield="string"
+                        class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langstring"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/string"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </f.name>
+                <f.fullName parent="/field/lang.string" size="300"
+                            titleShort="Полное наименование"
+                            title="Полное наименование" req="true"
+                            realfield="string"
+                            class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langstring"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/string"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </f.fullName>
+                <f.cod parent="/field/string" size="12" titleShort="Код"
+                       title="Код" req="true"
+                       class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input width="large" jsclass="String"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <validator>
+                        <unique/>
+                    </validator>
+                </f.cod>
+                <f.cmt parent="/field/lang.memo" titleShort="Коммент"
+                       title="Комментарий" realfield="memo"
+                       class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langflag"/>
+                        <input jsclass="Langmemo" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/memo" dbdatatype="memo"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </f.cmt>
+                <f.htmlText parent="/field/lang.memo" titleShort="Коммент"
+                            title="Комментарий" realfield="memo"
+                            class="geoprocessing.main.model.sys.LangString2Field">
+                    <js>
+                        <column jsclass="Langstring"/>
+                        <input jsclass="Langhtmltext" width="large"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                    <field>
+                        <real parent="/field/memo" dbdatatype="memo"
+                              class="jandcode.dbm.field.StringField"/>
+                    </field>
+                </f.htmlText>
+                <f.dbeg parent="/field/date" titleShort="Начало"
+                        title="Начало интервала"
+                        class="jandcode.dbm.field.DateField">
+                    <js>
+                        <column jsclass="Date"/>
+                        <input jsclass="Date"/>
+                        <datalabel jsclass="Date"/>
+                    </js>
+                    <gsp>
+                        <value type="date"/>
+                    </gsp>
+                </f.dbeg>
+                <f.dend parent="/field/date" titleShort="Конец"
+                        title="Конец интервала"
+                        class="jandcode.dbm.field.DateField">
+                    <js>
+                        <column jsclass="Date"/>
+                        <input jsclass="Date"/>
+                        <datalabel jsclass="Date"/>
+                    </js>
+                    <gsp>
+                        <value type="date"/>
+                    </gsp>
+                </f.dend>
+                <f.ord parent="/field/long" visible="false"
+                       title="Порядковый номер"
+                       class="jandcode.dbm.field.LongField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="Int" width="small"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </f.ord>
+                <f.sign parent="/field/string" size="60" title="Обозначение"
+                        class="jandcode.dbm.field.StringField">
+                    <js>
+                        <column jsclass="String"/>
+                        <input jsclass="String"/>
+                        <datalabel jsclass="String"/>
+                    </js>
+                    <gsp>
+                        <value type="string"/>
+                    </gsp>
+                </f.sign>
+            </field>
+            <domain>
+                <sys tag.dao="" tag.dict="" tag.db="" tag.dbview=""
+                     abstract="false" class="jandcode.dbm.Domain"
+                     tag.dataloader="">
+                    <ref parent="/field/ref" ref="sys"
+                         class="jandcode.dbm.field.RefField"/>
+                </sys>
+                <id parent="/domain/sys" tag.dao="" tag.dict="" tag.db=""
+                    tag.dbview="" abstract="false" tag.dataloader=""
+                    class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="id"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                    </field>
+                </id>
+                <dict.utils parent="/domain/id" tag.dao="true" tag.dict=""
+                            tag.db="" tag.dbview="" abstract="false"
+                            tag.dataloader="" class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="dict.utils"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                    </field>
+                    <dao>
+                        <default class="jandcode.wax.core.model.DictUtilsDao"/>
+                    </dao>
+                </dict.utils>
+                <tree.ui parent="/domain/id" tag.dao="" tag.dict="" tag.db=""
+                         tag.dbview="" abstract="false" tag.dataloader=""
+                         class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="tree.ui"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <text parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </text>
+                        <checked parent="/field/boolean"
+                                 class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </checked>
+                        <expanded parent="/field/boolean"
+                                  class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </expanded>
+                        <leaf parent="/field/boolean"
+                              class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </leaf>
+                        <icon parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </icon>
+                        <iconCls parent="/field/string"
+                                 class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </iconCls>
+                        <qtip parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </qtip>
+                        <qtitle parent="/field/string"
+                                class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </qtitle>
+                    </field>
+                </tree.ui>
+                <wax.DictMemory parent="/domain/id" tag.dao="true"
+                                tag.dict="true" tag.db="" tag.dbview=""
+                                abstract="true" tag.dataloader=""
+                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref.dict" ref="wax.DictMemory"
+                         dict="wax.DictMemory"
+                         class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="Cbdict" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <text parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </text>
+                    </field>
+                    <dict defaultField="text"/>
+                    <dao>
+                        <dict class="jandcode.wax.core.model.WaxDictMemory_dict"/>
+                    </dao>
+                </wax.DictMemory>
+                <wax.DictSimple parent="/domain/wax.Table" tag.dao="true"
+                                tag.dict="true" tag.db="" tag.dbview=""
+                                abstract="true" tag.dataloader=""
+                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref.dict" ref="wax.DictSimple"
+                         dict="wax.DictSimple"
+                         class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="Cbdict" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/string" size="100"
+                              title="Наименование" req="true"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <validator>
+                                <unique parent="/validator/unique"
+                                        class="jandcode.dbm.validate.UniqueValidator"/>
+                            </validator>
+                        </name>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                            <editList jsclass="Jc.frame.SimpleEditList"/>
+                        </frame>
+                    </js>
+                    <dict defaultField="name"/>
+                    <dao>
+                        <list class="jandcode.wax.core.model.WaxListDao"/>
+                        <updater
+                                 class="jandcode.wax.core.model.WaxUpdaterDictDao"/>
+                        <dict class="jandcode.wax.core.model.WaxLoadDictDao"/>
+                    </dao>
+                </wax.DictSimple>
+                <wax.Table parent="/domain/id" tag.dao="" tag.dict="" tag.db=""
+                           tag.dbview="" abstract="false" tag.dataloader=""
+                           class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="wax.Table"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                </wax.Table>
+                <Wax_VerDb parent="/domain/id" tag.dao="" tag.dict=""
+                           tag.db="true" tag.dbview="" abstract="false"
+                           title="Версия базы данных" tablename="Wax_VerDb"
+                           tag.dataloader="" class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="Wax_VerDb"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <ver parent="/field/long" title="Номер версии"
+                             class="jandcode.dbm.field.LongField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </ver>
+                    </field>
+                    <ddl>
+                        <create type="create">insert into Wax_VerDb (id, ver) values (1, 0)
+                            ${th.delim}
+                        </create>
+                    </ddl>
+                </Wax_VerDb>
+                <DbLog.lev parent="/domain/wax.DictMemory" tag.dao="true"
+                           tag.dict="true" tag.db="" tag.dbview=""
+                           abstract="false" title="Уровень" tag.dataloader=""
+                           class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref.dict" ref="DbLog.lev"
+                         dict="DbLog.lev" class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="Cbdict" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <field>
+                        <id parent="/field/string" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </id>
+                        <text parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </text>
+                    </field>
+                    <dict defaultField="text"/>
+                    <dao>
+                        <dict class="jandcode.wax.core.model.WaxDictMemory_dict"/>
+                    </dao>
+                    <dictdata>
+                        <i id="error">error
+                        </i>
+                        <i id="info">info
+                        </i>
+                        <i id="warn">warn
+                        </i>
+                    </dictdata>
+                </DbLog.lev>
+                <DbLog parent="/domain/wax.Table" tag.dao="true" tag.dict=""
+                       tag.db="true" tag.dbview="" abstract="false" title="Лог"
+                       tablename="DbLog" tag.dataloader=""
+                       class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="DbLog"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <lev parent="/field/f.DbLog.lev" title="Уровень"
+                             dict="DbLog.lev" size="10"
+                             class="jandcode.dbm.field.StringField">
+                            <!--@ 
+                                error, warn, info
+                            -->
+                            
+                            <js>
+                                <column jsclass="Dict"/>
+                                <input jsclass="Cbdict" width="large"/>
+                                <datalabel jsclass="Dict"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </lev>
+                        <dt parent="/field/datetime" title="Время"
+                            class="jandcode.dbm.field.DateTimeField">
+                            <js>
+                                <column jsclass="Datetime"/>
+                                <input jsclass="Datetime"/>
+                                <datalabel jsclass="Datetime"/>
+                            </js>
+                            <gsp>
+                                <value format="dd.MM.yyyy HH:mm" type="date"/>
+                            </gsp>
+                        </dt>
+                        <name parent="/field/string" size="60" title="Источник"
+                              class="jandcode.dbm.field.StringField">
+                            <!--@ 
+                                Источник события. Строка разделенная точками. Обычно имя модуля или
+                                подсистемы.
+                            -->
+                            
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </name>
+                        <msg parent="/field/string" size="255" title="Сообщение"
+                             class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </msg>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <updater
+                                 class="geoprocessing.utils.dblog.model.dao.DbLog_updater"/>
+                        <list
+                              class="geoprocessing.utils.dblog.model.dao.DbLog_list"/>
+                    </dao>
+                </DbLog>
+                <DbLog.filter parent="/domain/DbLog" tag.dao="" tag.dict=""
+                              tag.db="" tag.dbview="" abstract="false"
+                              tag.dataloader="" title="Лог" tablename="DbLog"
+                              class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="DbLog.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <lev parent="/field/f.DbLog.lev" size="10"
+                             dict="DbLog.lev" title="Уровень"
+                             class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="Dict"/>
+                                <input jsclass="Cbdict" width="large"/>
+                                <datalabel jsclass="Dict"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </lev>
+                        <dt parent="/field/datetime" title="Время"
+                            class="jandcode.dbm.field.DateTimeField">
+                            <js>
+                                <column jsclass="Datetime"/>
+                                <input jsclass="Datetime"/>
+                                <datalabel jsclass="Datetime"/>
+                            </js>
+                            <gsp>
+                                <value format="dd.MM.yyyy HH:mm" type="date"/>
+                            </gsp>
+                        </dt>
+                        <name parent="/field/string" size="60" title="Источник"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </name>
+                        <msg parent="/field/string" size="255" title="Сообщение"
+                             class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </msg>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <updater
+                                 class="geoprocessing.utils.dblog.model.dao.DbLog_updater"/>
+                        <list
+                              class="geoprocessing.utils.dblog.model.dao.DbLog_list"/>
+                    </dao>
+                </DbLog.filter>
+                <DbInfo parent="/domain/wax.Table" tag.dao="true" tag.dict=""
+                        tag.db="true" tag.dbview="" abstract="false"
+                        title="Информация о базе данных" tablename="DbInfo"
+                        tag.dataloader="true" class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="DbInfo"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <dbid parent="/field/string" size="40"
+                              title="ID экземпляра базы"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </dbid>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <utils
+                               class="geoprocessing.utils.dbinfo.model.DbInfo_utils"/>
+                    </dao>
+                    <dataloader>
+                        <i parent="/dataloader/xml" dbdata="prod"
+                           file="jar:file:///C:/PROJECTS/geoprocessing/geoprocessing-utils/temp/lib/geoprocessing-utils.jar!/geoprocessing/utils/dbinfo/dbdata/prod/DbInfo-prod.xml"
+                           class="jandcode.dbm.dataloader.XmlDataLoader"/>
+                    </dataloader>
+                </DbInfo>
+                <DbFileStorage parent="/domain/wax.Table" tag.dao="true"
+                               tag.dict="" tag.db="true" tag.dbview=""
+                               abstract="false" title="Хранилище файлов"
+                               tablename="DbFileStorage" tag.dataloader=""
+                               class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="DbFileStorage"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <path parent="/field/string" size="255"
+                              title="Физический путь в хранилище"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </path>
+                        <originalFilename parent="/field/string" size="255"
+                                          title="Оригинальное имя файла"
+                                          class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </originalFilename>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <updater
+                                 class="geoprocessing.utils.dbfilestorage.model.DbFileStorage_updater"/>
+                    </dao>
+                </DbFileStorage>
+                <app.DictEntity.dict parent="/domain/id" tag.dao="" tag.dict=""
+                                     tag.db="" tag.dbview="" abstract="false"
+                                     tag.dataloader=""
+                                     class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="app.DictEntity.dict"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <cod parent="/field/string"
+                             class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </cod>
+                        <name parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </name>
+                    </field>
+                </app.DictEntity.dict>
+                <Experiment parent="/domain/wax.Table" tag.dao="true"
+                            tag.dict="" tag.db="true" tag.dbview=""
+                            abstract="false" title="Эксперимент"
+                            tablename="Experiment" tag.dataloader=""
+                            class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="Experiment"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.cmt" realfield="memo"
+                              title="Комментарий" titleShort="Коммент"
+                              class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <dte parent="/field/date" title="Дата эксперимента"
+                             class="jandcode.dbm.field.DateField">
+                            <js>
+                                <column jsclass="Date"/>
+                                <input jsclass="Date"/>
+                                <datalabel jsclass="Date"/>
+                            </js>
+                            <gsp>
+                                <value type="date"/>
+                            </gsp>
+                        </dte>
+                        <description parent="/field/f.cmt" title="Описание"
+                                     realfield="memo" titleShort="Коммент"
+                                     class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </description>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.Experiment_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.Experiment_updater"/>
+                    </dao>
+                </Experiment>
+                <Experiment.filter parent="/domain/Experiment" tag.dao=""
+                                   tag.dict="" tag.db="" tag.dbview=""
+                                   abstract="false" tag.dataloader=""
+                                   title="Эксперимент" tablename="Experiment"
+                                   class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="Experiment.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.cmt" titleShort="Коммент"
+                              realfield="memo" title="Комментарий"
+                              class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <dte parent="/field/date" title="Дата эксперимента"
+                             class="jandcode.dbm.field.DateField">
+                            <js>
+                                <column jsclass="Date"/>
+                                <input jsclass="Date"/>
+                                <datalabel jsclass="Date"/>
+                            </js>
+                            <gsp>
+                                <value type="date"/>
+                            </gsp>
+                        </dte>
+                        <description parent="/field/f.cmt" titleShort="Коммент"
+                                     realfield="memo" title="Описание"
+                                     class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </description>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.Experiment_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.Experiment_updater"/>
+                    </dao>
+                </Experiment.filter>
+                <ExperimentData parent="/domain/wax.Table" tag.dao="true"
+                                tag.dict="" tag.db="true" tag.dbview=""
+                                abstract="false" title="Данные эксперимента"
+                                tablename="ExperimentData" tag.dataloader=""
+                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="ExperimentData"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experimentFile parent="/domain/ExperimentFile/ref"
+                                        class="jandcode.dbm.field.RefField"
+                                        ref="ExperimentFile"/>
+                        <x parent="/field/double" title="x"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </x>
+                        <y parent="/field/double" title="y"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </y>
+                        <a parent="/field/double" title="a"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </a>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.data.ExperimentData_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.data.ExperimentData_updater"/>
+                    </dao>
+                </ExperimentData>
+                <ExperimentData.filter parent="/domain/ExperimentData"
+                                       tag.dao="" tag.dict="" tag.db=""
+                                       tag.dbview="" abstract="false"
+                                       tag.dataloader=""
+                                       title="Данные эксперимента"
+                                       tablename="ExperimentData"
+                                       class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="ExperimentData.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experimentFile parent="/domain/ExperimentFile/ref"
+                                        ref="ExperimentFile"
+                                        class="jandcode.dbm.field.RefField"/>
+                        <x parent="/field/double" title="x"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </x>
+                        <y parent="/field/double" title="y"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </y>
+                        <a parent="/field/double" title="a"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </a>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.data.ExperimentData_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.data.ExperimentData_updater"/>
+                    </dao>
+                </ExperimentData.filter>
+                <ProcessedExperimentData parent="/domain/wax.Table"
+                                         tag.dao="true" tag.dict=""
+                                         tag.db="true" tag.dbview=""
+                                         abstract="false"
+                                         title="Обработанные данные эксперимента"
+                                         tablename="ProcessedExperimentData"
+                                         tag.dataloader=""
+                                         class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="ProcessedExperimentData"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experimentFile parent="/domain/ExperimentFile/ref"
+                                        class="jandcode.dbm.field.RefField"
+                                        ref="ExperimentFile"/>
+                        <veilvetType parent="/domain/FD_VeilvetType/ref"
+                                     dict="FD_VeilvetType" ref="FD_VeilvetType"
+                                     class="jandcode.dbm.field.RefField">
+                            <js>
+                                <input jsclass="CbdictVis" width="large"/>
+                                <column jsclass="Dict"/>
+                                <datalabel jsclass="Dict"/>
+                            </js>
+                            <gsp>
+                                <value type="dict"/>
+                            </gsp>
+                        </veilvetType>
+                        <x parent="/field/double" title="x"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </x>
+                        <y parent="/field/double" title="y"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </y>
+                        <a parent="/field/double" title="a"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </a>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_updater"/>
+                    </dao>
+                </ProcessedExperimentData>
+                <ProcessedExperimentData.filter
+                                                parent="/domain/ProcessedExperimentData"
+                                                tag.dao="" tag.dict="" tag.db=""
+                                                tag.dbview="" abstract="false"
+                                                tag.dataloader=""
+                                                title="Обработанные данные эксперимента"
+                                                tablename="ProcessedExperimentData"
+                                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref"
+                         ref="ProcessedExperimentData.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experimentFile parent="/domain/ExperimentFile/ref"
+                                        ref="ExperimentFile"
+                                        class="jandcode.dbm.field.RefField"/>
+                        <veilvetType parent="/domain/FD_VeilvetType/ref"
+                                     ref="FD_VeilvetType" dict="FD_VeilvetType"
+                                     class="jandcode.dbm.field.RefField">
+                            <js>
+                                <input jsclass="CbdictVis" width="large"/>
+                                <column jsclass="Dict"/>
+                                <datalabel jsclass="Dict"/>
+                            </js>
+                            <gsp>
+                                <value type="dict"/>
+                            </gsp>
+                        </veilvetType>
+                        <x parent="/field/double" title="x"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </x>
+                        <y parent="/field/double" title="y"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </y>
+                        <a parent="/field/double" title="a"
+                           class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </a>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_updater"/>
+                    </dao>
+                </ProcessedExperimentData.filter>
+                <ExperimentFile parent="/domain/wax.Table" tag.dao="true"
+                                tag.dict="" tag.db="true" tag.dbview=""
+                                abstract="false" title="Файл эксперимента"
+                                tablename="ExperimentFile" tag.dataloader=""
+                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="ExperimentFile"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experiment parent="/domain/Experiment/ref"
+                                    class="jandcode.dbm.field.RefField"
+                                    ref="Experiment"/>
+                        <name parent="/field/f.cmt" realfield="memo"
+                              title="Комментарий" titleShort="Коммент"
+                              class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <fileId parent="/field/long" title="Файл эксперимента"
+                                class="jandcode.dbm.field.LongField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </fileId>
+                        <description parent="/field/f.cmt" title="Описание"
+                                     realfield="memo" titleShort="Коммент"
+                                     class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </description>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.file.ExperimentFile_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.file.ExperimentFile_updater"/>
+                    </dao>
+                </ExperimentFile>
+                <ExperimentFile.filter parent="/domain/ExperimentFile"
+                                       tag.dao="" tag.dict="" tag.db=""
+                                       tag.dbview="" abstract="false"
+                                       tag.dataloader=""
+                                       title="Файл эксперимента"
+                                       tablename="ExperimentFile"
+                                       class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="ExperimentFile.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <experiment parent="/domain/Experiment/ref"
+                                    ref="Experiment"
+                                    class="jandcode.dbm.field.RefField"/>
+                        <name parent="/field/f.cmt" titleShort="Коммент"
+                              realfield="memo" title="Комментарий"
+                              class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <fileId parent="/field/long" title="Файл эксперимента"
+                                class="jandcode.dbm.field.LongField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </fileId>
+                        <description parent="/field/f.cmt" titleShort="Коммент"
+                                     realfield="memo" title="Описание"
+                                     class="geoprocessing.main.model.sys.LangString2Field">
+                            <js>
+                                <column jsclass="Langflag"/>
+                                <input jsclass="Langmemo" width="large"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/memo" dbdatatype="memo"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </description>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.experiment.file.ExperimentFile_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.experiment.file.ExperimentFile_updater"/>
+                    </dao>
+                </ExperimentFile.filter>
+                <FD_VeilvetType parent="/domain/FilledDict" tag.dao="true"
+                                tag.dict="true" tag.db="true" tag.dbview=""
+                                abstract="false" title="Тип вейлвета"
+                                tablename="FD_VeilvetType" tag.dataloader="true"
+                                class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref.dict" ref="FD_VeilvetType"
+                         dict="FD_VeilvetType"
+                         class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="CbdictVis" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <fullName parent="/field/f.fullName" size="300"
+                                  titleShort="Полное наименование"
+                                  realfield="string" title="Полное наименование"
+                                  class="geoprocessing.main.model.sys.LangString2Field"
+                                  req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </fullName>
+                        <ord parent="/field/f.ord" visible="false"
+                             title="Порядковый номер"
+                             class="jandcode.dbm.field.LongField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </ord>
+                        <vis parent="/field/int" title="Видимый"
+                             class="jandcode.dbm.field.IntField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </vis>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dict defaultField="name"/>
+                    <dao>
+                        <dict class="jandcode.wax.core.model.WaxLoadDictDao"/>
+                    </dao>
+                    <dataloader>
+                        <dictdata dbdata="prod"
+                                  class="geoprocessing.main.model.fd.FilledDictDataLoader"/>
+                    </dataloader>
+                    <dictdata>
+                        <i ord="1" name_kz="Хаар" vis="1" const="haar"
+                           name_ru="Хаар" id="1" name_en="Haar"/>
+                        <i ord="2" name_kz="Добеши" vis="1" const="dobeshy"
+                           name_ru="Добеши" id="2" name_en="Dobeshy"/>
+                    </dictdata>
+                </FD_VeilvetType>
+                <FilledDict parent="/domain/wax.Table" tag.dao="true"
+                            tag.dict="true" tag.db="" tag.dbview=""
+                            abstract="false" tag.dataloader="true"
+                            class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref.dict" ref="FilledDict"
+                         dict="FilledDict" class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="CbdictVis" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <fullName parent="/field/f.fullName" size="300"
+                                  titleShort="Полное наименование"
+                                  realfield="string" title="Полное наименование"
+                                  class="geoprocessing.main.model.sys.LangString2Field"
+                                  req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </fullName>
+                        <ord parent="/field/f.ord" title="Порядковый номер"
+                             visible="false"
+                             class="jandcode.dbm.field.LongField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </ord>
+                        <vis parent="/field/int" title="Видимый"
+                             class="jandcode.dbm.field.IntField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Int" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </vis>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dict defaultField="name"/>
+                    <dao>
+                        <dict class="jandcode.wax.core.model.WaxLoadDictDao"/>
+                    </dao>
+                    <dataloader>
+                        <dictdata dbdata="prod"
+                                  class="geoprocessing.main.model.fd.FilledDictDataLoader"/>
+                    </dataloader>
+                </FilledDict>
+                <MaterialType parent="/domain/wax.Table" tag.dao="true"
+                              tag.dict="" tag.db="true" tag.dbview=""
+                              abstract="false" title="Типы материалов"
+                              tablename="MaterialType" tag.dataloader=""
+                              class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="MaterialType"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <muMin parent="/field/double"
+                               title="Минимальная магнитаная проницаемость"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </muMin>
+                        <muMax parent="/field/double"
+                               title="Максимальная магнитаная проницаемость"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </muMax>
+                        <epsMin parent="/field/double"
+                                title="Минимальная диэлектрическая проницаемость"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </epsMin>
+                        <epsMax parent="/field/double"
+                                title="Максимальная диэлектрическая проницаемость"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </epsMax>
+                        <sigma parent="/field/double" title="Проводимость среды"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </sigma>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.materialtype.MaterialType_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.materialtype.MaterialType_updater"/>
+                    </dao>
+                </MaterialType>
+                <MaterialType.filter parent="/domain/MaterialType" tag.dao=""
+                                     tag.dict="" tag.db="" tag.dbview=""
+                                     abstract="false" tag.dataloader=""
+                                     title="Типы материалов"
+                                     tablename="MaterialType"
+                                     class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="MaterialType.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <muMin parent="/field/double"
+                               title="Минимальная магнитаная проницаемость"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </muMin>
+                        <muMax parent="/field/double"
+                               title="Максимальная магнитаная проницаемость"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </muMax>
+                        <epsMin parent="/field/double"
+                                title="Минимальная диэлектрическая проницаемость"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </epsMin>
+                        <epsMax parent="/field/double"
+                                title="Максимальная диэлектрическая проницаемость"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </epsMax>
+                        <sigma parent="/field/double" title="Проводимость среды"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </sigma>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list
+                              class="geoprocessing.main.model.materialtype.MaterialType_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.materialtype.MaterialType_updater"/>
+                    </dao>
+                </MaterialType.filter>
+                <Obj parent="/domain/wax.Table" tag.dao="true" tag.dict=""
+                     tag.db="true" tag.dbview="" abstract="false"
+                     title="Объекты" tablename="Obj" tag.dataloader=""
+                     class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="Obj"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <length parent="/field/double" title="Длина"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </length>
+                        <width parent="/field/double" title="Ширина"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </width>
+                        <height parent="/field/double" title="Высота"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </height>
+                        <materialType parent="/domain/MaterialType/ref"
+                                      class="jandcode.dbm.field.RefField"
+                                      ref="MaterialType"/>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list class="geoprocessing.main.model.obj.Obj_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.obj.Obj_updater"/>
+                    </dao>
+                </Obj>
+                <Obj.filter parent="/domain/Obj" tag.dao="" tag.dict=""
+                            tag.db="" tag.dbview="" abstract="false"
+                            tag.dataloader="" title="Объекты" tablename="Obj"
+                            class="jandcode.dbm.Domain">
+                    <ref parent="/field/ref" ref="Obj.filter"
+                         class="jandcode.dbm.field.RefField"/>
+                    <field>
+                        <id parent="/field/id" visible="false" editable="false"
+                            weight="-1000" title="Id"
+                            class="jandcode.dbm.field.LongField"/>
+                        <name parent="/field/f.name" size="200"
+                              titleShort="Наименование" realfield="string"
+                              title="Наименование"
+                              class="geoprocessing.main.model.sys.LangString2Field"
+                              req="true">
+                            <js>
+                                <column jsclass="Langstring"/>
+                                <input jsclass="Langstring"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                            <field>
+                                <real parent="/field/string"
+                                      class="jandcode.dbm.field.StringField"/>
+                            </field>
+                        </name>
+                        <length parent="/field/double" title="Длина"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </length>
+                        <width parent="/field/double" title="Ширина"
+                               class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </width>
+                        <height parent="/field/double" title="Высота"
+                                class="jandcode.dbm.field.DoubleField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="Number" width="small"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </height>
+                        <materialType parent="/domain/MaterialType/ref"
+                                      ref="MaterialType"
+                                      class="jandcode.dbm.field.RefField"/>
+                    </field>
+                    <js>
+                        <frame>
+                            <editRec jsclass="Jc.frame.SimpleEditRec"/>
+                            <delRec jsclass="Jc.frame.SimpleDelRec"/>
+                        </frame>
+                    </js>
+                    <dao>
+                        <list class="geoprocessing.main.model.obj.Obj_list"/>
+                        <updater
+                                 class="geoprocessing.main.model.obj.Obj_updater"/>
+                    </dao>
+                </Obj.filter>
+            </domain>
+            <dataloader>
+                <csv class="jandcode.dbm.dataloader.CsvDataLoader"/>
+                <xml class="jandcode.dbm.dataloader.XmlDataLoader"/>
+                <xmltree class="jandcode.dbm.dataloader.XmltreeDataLoader"/>
+                <rt class="jandcode.dbm.dataloader.RtDataLoader"/>
+                <random class="jandcode.dbm.dataloader.RandomDataLoader">
+                    <rnd>
+                        <null class="jandcode.dbm.dataloader.rnd.NullRnd"/>
+                        <id class="jandcode.dbm.dataloader.rnd.IdRnd"/>
+                        <blob class="jandcode.dbm.dataloader.rnd.BlobRnd"/>
+                        <boolean class="jandcode.dbm.dataloader.rnd.BooleanRnd"/>
+                        <date class="jandcode.dbm.dataloader.rnd.DateRnd"/>
+                        <datetime
+                                  class="jandcode.dbm.dataloader.rnd.DateTimeRnd"/>
+                        <double class="jandcode.dbm.dataloader.rnd.DoubleRnd"/>
+                        <int class="jandcode.dbm.dataloader.rnd.IntRnd"/>
+                        <long class="jandcode.dbm.dataloader.rnd.LongRnd"/>
+                        <memo class="jandcode.dbm.dataloader.rnd.MemoRnd"/>
+                        <string class="jandcode.dbm.dataloader.rnd.StringRnd"/>
+                        <lang.string
+                                     class="jandcode.dbm.dataloader.rnd.LangStringRnd"/>
+                    </rnd>
+                    <field>
+                        <id rnd="id"/>
+                    </field>
+                </random>
+            </dataloader>
+            <validator>
+                <record class="jandcode.dbm.validate.RecordValidator"/>
+                <delref class="jandcode.dbm.validate.DelrefValidator"/>
+                <field class="jandcode.dbm.validate.FieldValidator"/>
+                <req class="jandcode.dbm.validate.ReqValidator"/>
+                <notnull class="jandcode.dbm.validate.NotNullValidator"/>
+                <unique class="jandcode.dbm.validate.UniqueValidator"/>
+                <date.todayLess
+                                class="jandcode.dbm.validate.DateTodayLessValidator"/>
+            </validator>
+            <dblang default="ru">
+                <lang>
+                    <ru weight="10" enabled="true"/>
+                </lang>
+            </dblang>
+            <sqlfilter>
+                <equal class="jandcode.dbm.sqlfilter.SqlFilter_equal"/>
+                <contains class="jandcode.dbm.sqlfilter.SqlFilter_contains"/>
+                <year class="jandcode.dbm.sqlfilter.SqlFilter_year"/>
+                <parent class="jandcode.dbm.sqlfilter.SqlFilter_parent"/>
+                <log.name
+                          class="geoprocessing.utils.dblog.model.sqlfilter.SqlFilter_log_name"/>
+            </sqlfilter>
+            <mixin>
+                <tree.fields>
+                    <field>
+                        <text parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </text>
+                        <checked parent="/field/boolean"
+                                 class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </checked>
+                        <expanded parent="/field/boolean"
+                                  class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </expanded>
+                        <leaf parent="/field/boolean"
+                              class="jandcode.dbm.field.BooleanField">
+                            <js>
+                                <column jsclass="Boolean"/>
+                                <input jsclass="Checkbox"/>
+                                <datalabel jsclass="Boolean"/>
+                            </js>
+                            <gsp>
+                                <value jsclass="boolean" type="string"/>
+                            </gsp>
+                        </leaf>
+                        <icon parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </icon>
+                        <iconCls parent="/field/string"
+                                 class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </iconCls>
+                        <qtip parent="/field/string"
+                              class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </qtip>
+                        <qtitle parent="/field/string"
+                                class="jandcode.dbm.field.StringField">
+                            <js>
+                                <column jsclass="String"/>
+                                <input jsclass="String"/>
+                                <datalabel jsclass="String"/>
+                            </js>
+                            <gsp>
+                                <value type="string"/>
+                            </gsp>
+                        </qtitle>
+                    </field>
+                </tree.fields>
+                <app.DictEntity>
+                    <ref parent="/field/ref.dict"
+                         class="jandcode.dbm.field.RefField">
+                        <js>
+                            <input jsclass="Cbdict" width="large"/>
+                            <column jsclass="Dict"/>
+                            <datalabel jsclass="Dict"/>
+                        </js>
+                        <gsp>
+                            <value type="dict"/>
+                        </gsp>
+                    </ref>
+                    <dict defaultField="name" resolve="true"
+                          domain="app.DictEntity.dict"/>
+                    <dao>
+                        <dict
+                              class="geoprocessing.main.model.sys.AppDictEntity_dict"/>
+                    </dao>
+                </app.DictEntity>
+            </mixin>
+            <db>
+                <default parent="/db/sys" system.username="sys as sysdba"
+                         dbdriver="oracle" database="orcl" password="111"
+                         host="ktz" username="geoprocessing"
+                         system.password="orcl" class="jandcode.dbm.db.DbSource">
+                    <service>
+                        <jandcode.wax.verdb.WaxVerdbService
+                                                            class="jandcode.wax.verdb.WaxVerdbService"/>
+                    </service>
+                </default>
+            </db>
+            <verdb ver="0"/>
+        </geoprocessing>
+    </model>
+    <web>
+        <resource>
+            <jandcode.web package="jandcode.web"/>
+            <js-ext4 path="res:js-ext4"/>
+            <jandcode.wax.core package="jandcode.wax.core"/>
+            <geoprocessing.utils.dblog package="geoprocessing.utils.dblog"
+                                       filemark="index.rt"/>
+            <geoprocessing.mssql package="geoprocessing.mssql"/>
+            <geoprocessing.main package="geoprocessing.main"/>
+            <app.webdir path="C:\PROJECTS\geoprocessing/web"/>
+            <jandcode.wax.tst package="jandcode.wax.tst"/>
+        </resource>
+        <resourcefactory>
+            <bin class="jandcode.web.impl.ResourceFactoryBin"/>
+            <text class="jandcode.web.impl.ResourceFactoryTextGsp"/>
+            <private class="jandcode.web.impl.ResourceFactoryPrivate"/>
+            <text-inject class="jandcode.web.impl.ResourceFactoryTextGspInject"/>
+            <gsp class="jandcode.web.impl.ResourceFactoryGsp"/>
+            <gf class="jandcode.wax.core.utils.gf.impl.ResourceFactoryGf"/>
+        </resourcefactory>
+        <filetype>
+            <java mime="" type="private"/>
+            <class mime="" type="private"/>
+            <groovy mime="" type="private"/>
+            <gsp mime="" type="private"/>
+            <rt mime="" type="private"/>
+            <css mime="text/css" resourcefactory="text-inject" type="text"/>
+            <js mime="application/x-javascript" resourcefactory="text-inject"
+                type="text"/>
+            <txt mime="text/plain" type="text"/>
+            <html mime="text/html" type="text"/>
+            <htm mime="text/html" type="text"/>
+            <json mime="application/json" type="text"/>
+            <xml mime="text/xml" type="text"/>
+            <csv mime="text/plain" type="text"/>
+            <png mime="image/png" type="bin"/>
+            <jpg mime="image/jpg" type="bin"/>
+            <jpeg mime="image/jpeg" type="bin"/>
+            <gif mime="image/gif" type="bin"/>
+            <zip mime="application/x-zip-compressed" type="bin"/>
+            <swf mime="application/x-shockwave-flash" type="bin"/>
+            <jar mime="application/x-zip-compressed" type="bin"/>
+            <exe mime="application/exe" type="bin"/>
+            <htmlg mime="text/html" resourcefactory="gsp" type="text"/>
+            <gf mime="text/html" resourcefactory="gf" type="text"/>
+            <gframe mime="text/html" resourcefactory="gsp" type="text"/>
+        </filetype>
+        <type>
+            <null>
+                <render>
+                    <html class="jandcode.web.impl.RenderDummy"/>
+                </render>
+            </null>
+            <java.lang.Object>
+                <render>
+                    <html class="jandcode.web.impl.RenderToString"/>
+                </render>
+            </java.lang.Object>
+            <jandcode.web.ResponseTml>
+                <render>
+                    <html class="jandcode.web.impl.RenderResponseTml"/>
+                </render>
+            </jandcode.web.ResponseTml>
+            <java.lang.Throwable>
+                <render>
+                    <html class="jandcode.web.impl.RenderExceptionHtml"/>
+                    <json class="jandcode.web.impl.RenderExceptionJson"/>
+                </render>
+            </java.lang.Throwable>
+            <geoprocessing.utils.dbfilestorage.DbFileStorageItem>
+                <render>
+                    <bin
+                         class="geoprocessing.utils.dbfilestorage.RenderBin_DbFileStorageItem"/>
+                </render>
+            </geoprocessing.utils.dbfilestorage.DbFileStorageItem>
+        </type>
+        <action>
+            <_static class="jandcode.web.action.Static"/>
+            <bgtasks class="jandcode.bgtasks.BgTasksAction"/>
+        </action>
+        <tml>
+            <gf>
+                <tml>
+                    <renderFrame
+                                 class="jandcode.wax.core.utils.gf.tml.RenderFrameTml"/>
+                    <javascript
+                                class="jandcode.wax.core.utils.gf.tml.JavaScriptMethodTml"/>
+                    <attr class="jandcode.wax.core.utils.gf.tml.AttrTml"/>
+                    <groovy class="jandcode.wax.core.utils.gf.tml.GroovyTml"/>
+                    <tstFrame class="jandcode.wax.core.utils.gf.tml.TstFrameTml"/>
+                </tml>
+            </gf>
+            <g>
+                <tml>
+                    <javascript
+                                class="jandcode.wax.core.utils.gf.tml.JavaScriptMethodTml"/>
+                </tml>
+            </g>
+        </tml>
+        <theme default="ide2">
+            <base jsclass="Jc.theme.Base">
+                <item>
+                    <ext-all.css path="/js/ext4/resources/css/ext-all-gray.css"/>
+                    <icon16.css path="/images/icon16/icon16.css"/>
+                    <jc-all.css path="/page/css/jc-all.css">
+                        <item>
+                            <base.css path="/page/css/base.css"/>
+                            <base-waitmsg.css path="/page/css/base-waitmsg.css"/>
+                            <base-errorwindow.css
+                                                  path="/page/css/base-errorwindow.css"/>
+                            <base-pageheader.css
+                                                 path="/page/css/base-pageheader.css"/>
+                            <base-jctable-layout.css
+                                                     path="/page/css/base-jctable-layout.css"/>
+                            <base-delim.css path="/page/css/base-delim.css"/>
+                            <base-datalabel.css
+                                                path="/page/css/base-datalabel.css"/>
+                            <base-databox.css path="/page/css/base-databox.css"/>
+                            <base-htmltext.css
+                                               path="/page/css/base-htmltext.css"/>
+                            <base-print.css path="/page/css/base-print.css"/>
+                        </item>
+                    </jc-all.css>
+                    <ext-all.js pathDebug="js/ext4/ext-all-debug.js"
+                                path="js/ext4/ext-all.js"/>
+                    <jc-all.js path="js/jc-all.js"/>
+                    <body.gsp path="/page/css/base-body.gsp"/>
+                </item>
+            </base>
+            <ide parent="/web/theme/base" jsclass="Jc.theme.Ide">
+                <item>
+                    <ext-all.css path="/js/ext4/resources/css/ext-all-gray.css"/>
+                    <icon16.css path="/images/icon16/icon16.css"/>
+                    <jc-all.css path="/page/css/jc-all.css">
+                        <item>
+                            <base.css path="/page/css/base.css"/>
+                            <base-waitmsg.css path="/page/css/base-waitmsg.css"/>
+                            <base-errorwindow.css
+                                                  path="/page/css/base-errorwindow.css"/>
+                            <base-pageheader.css
+                                                 path="/page/css/base-pageheader.css"/>
+                            <base-jctable-layout.css
+                                                     path="/page/css/base-jctable-layout.css"/>
+                            <base-delim.css path="/page/css/base-delim.css"/>
+                            <base-datalabel.css
+                                                path="/page/css/base-datalabel.css"/>
+                            <base-databox.css path="/page/css/base-databox.css"/>
+                            <base-htmltext.css
+                                               path="/page/css/base-htmltext.css"/>
+                            <base-print.css path="/page/css/base-print.css"/>
+                            <ide-layout.css path="/page/css/ide-layout.css"/>
+                            <ide-controls.css path="/page/css/ide-controls.css"/>
+                            <ide-framegsp.css path="/page/css/ide-framegsp.css"/>
+                        </item>
+                    </jc-all.css>
+                    <ext-all.js pathDebug="js/ext4/ext-all-debug.js"
+                                path="js/ext4/ext-all.js"/>
+                    <jc-all.js path="js/jc-all.js"/>
+                    <body.gsp path="/page/css/base-body.gsp"/>
+                </item>
+            </ide>
+            <debugdiv parent="/web/theme/base" jsclass="Jc.theme.DebugDiv">
+                <item>
+                    <ext-all.css path="/js/ext4/resources/css/ext-all-gray.css"/>
+                    <icon16.css path="/images/icon16/icon16.css"/>
+                    <jc-all.css path="/page/css/jc-all.css">
+                        <item>
+                            <base.css path="/page/css/base.css"/>
+                            <base-waitmsg.css path="/page/css/base-waitmsg.css"/>
+                            <base-errorwindow.css
+                                                  path="/page/css/base-errorwindow.css"/>
+                            <base-pageheader.css
+                                                 path="/page/css/base-pageheader.css"/>
+                            <base-jctable-layout.css
+                                                     path="/page/css/base-jctable-layout.css"/>
+                            <base-delim.css path="/page/css/base-delim.css"/>
+                            <base-datalabel.css
+                                                path="/page/css/base-datalabel.css"/>
+                            <base-databox.css path="/page/css/base-databox.css"/>
+                            <base-htmltext.css
+                                               path="/page/css/base-htmltext.css"/>
+                            <base-print.css path="/page/css/base-print.css"/>
+                            <debugdiv-all.css path="/page/css/debugdiv-all.css"/>
+                        </item>
+                    </jc-all.css>
+                    <ext-all.js pathDebug="js/ext4/ext-all-debug.js"
+                                path="js/ext4/ext-all.js"/>
+                    <jc-all.js path="js/jc-all.js"/>
+                    <body.gsp path="/page/css/debugdiv-body.gsp"/>
+                </item>
+            </debugdiv>
+            <ide2 parent="/web/theme/ide" jsclass="Jc.theme.Ide2">
+                <item>
+                    <ext-all.css path="/js/ext4/resources/css/ext-all-gray.css"/>
+                    <icon16.css path="/images/icon16/icon16.css"/>
+                    <jc-all.css path="/page/css/jc-all.css">
+                        <item>
+                            <base.css path="/page/css/base.css"/>
+                            <base-waitmsg.css path="/page/css/base-waitmsg.css"/>
+                            <base-errorwindow.css
+                                                  path="/page/css/base-errorwindow.css"/>
+                            <base-pageheader.css
+                                                 path="/page/css/base-pageheader.css"/>
+                            <base-jctable-layout.css
+                                                     path="/page/css/base-jctable-layout.css"/>
+                            <base-delim.css path="/page/css/base-delim.css"/>
+                            <base-datalabel.css
+                                                path="/page/css/base-datalabel.css"/>
+                            <base-databox.css path="/page/css/base-databox.css"/>
+                            <base-htmltext.css
+                                               path="/page/css/base-htmltext.css"/>
+                            <base-print.css path="/page/css/base-print.css"/>
+                            <ide-layout.css path="/page/css/ide-layout.css"/>
+                            <ide-controls.css path="/page/css/ide-controls.css"/>
+                            <ide-framegsp.css path="/page/css/ide-framegsp.css"/>
+                            <ide2-layout.css path="/page/css/ide2-layout.css"/>
+                        </item>
+                    </jc-all.css>
+                    <ext-all.js pathDebug="js/ext4/ext-all-debug.js"
+                                path="js/ext4/ext-all.js"/>
+                    <jc-all.js path="js/jc-all.js"/>
+                    <body.gsp path="/page/css/base-body.gsp"/>
+                </item>
+            </ide2>
+        </theme>
+        <filter>
+            <bgtasks class="jandcode.bgtasks.impl.BgTasksWebFilter"/>
+        </filter>
+    </web>
+    <dbm>
+        <registermodel>
+            <default model="geoprocessing"/>
+        </registermodel>
+    </dbm>
+</root>

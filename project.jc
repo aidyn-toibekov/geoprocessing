@@ -1,0 +1,29 @@
+//
+if (fu.exists(wd("_project_over.jc"))) include wd("_project_over.jc")
+//
+project.name = "geoprocessing"
+project.package_root = "geoprocessing"
+//
+include "wax-root-project"
+include "wax-verdb-project"
+include "wax-verdb-project-product"
+//
+modules = [
+        'geoprocessing-main',
+        'geoprocessing-mssql',
+        'geoprocessing-utils',
+        'geoprocessing-fusion',
+
+]
+
+//
+libs = libs + []
+libs_dev = libs_dev + []
+//
+
+//
+gen_fd_const = cm("Генератор файла FD_Const.java") {
+    def dbmext = createExt("jandcode.dbm.jc.DbmProjectExt")
+    def model = dbmext.model
+    ut.generate("scripts/gen_fd_const.gsp", wd("temp"), [model: model, outfile: "FD_Const.java"])
+}

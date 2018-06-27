@@ -1,0 +1,12 @@
+//
+load '..'
+//
+project.name = "geoprocessing-fusion"
+project.package_root = "geoprocessing.fusion"
+//
+include "wax-module-project"
+include "localize-project"
+//
+libs = libs + ["geoprocessing-main"]
+libs_dev = libs_dev + []
+//

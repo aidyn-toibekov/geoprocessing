@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <x-module name="geoprocessing.mssql">
+        <depend name="jandcode.dbm"/>
+    </x-module>
+
+    <web>
+        <resource name="geoprocessing.mssql" package="geoprocessing.mssql"/>
+    </web>
+
+    <dbdriver name="mssql" parent="jdbc" class="geoprocessing.mssql.MssqlDbDriver"
+              jdbcDriverClass="net.sourceforge.jtds.jdbc.Driver"
+              url="jdbc:jtds:sqlserver://${host};instance=${instance};databaseName=${database};"
+    >
+        <service name="jandcode.dbm.db.DbManagerService"
+                 class="geoprocessing.mssql.MssqlDbManagerService"/>
+
+        <dbdatatype name="string" sqltype="varchar(${size})"/>
+        <dbdatatype name="double" sqltype="float"/>
+        <dbdatatype name="boolean" sqltype="bit"/>
+        <dbdatatype name="blob" sqltype="image"/>
+
+
+
+        <service name="jandcode.dbm.sqlfilter.SqlFilterService"
+                 sqlfilter="geoprocessing.mssql.MssqlSqlFilter"
+        />
+
+    </dbdriver>
+
+</root>

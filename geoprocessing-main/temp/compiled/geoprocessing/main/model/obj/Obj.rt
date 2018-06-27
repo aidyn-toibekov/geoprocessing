@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <domain name="Obj" parent="wax.Table" tag.db="true" title="Объекты экспериментов">
+
+        <field name="name" parent="f.name"/>
+
+        <field name="length" parent="double" title="Длина"/>
+
+        <field name="width" parent="double" title="Ширина"/>
+
+        <field name="height" parent="double" title="Высота"/>
+
+        <field name="materialType" parent="MaterialType/ref"/>
+
+
+        <!-- ===================================================================== -->
+        <dao name="list" class="geoprocessing.main.model.obj.Obj_list" />
+        <dao name="updater" class="geoprocessing.main.model.obj.Obj_updater"/>
+    </domain>
+
+    <!-- ===================================================================== -->
+
+    <domain name="Obj.filter" parent="Obj">
+
+    </domain>
+
+</root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <x-include path="*.rt" recursive="true"/>
+
+    <sqlfilter name="log.name"
+               class="geoprocessing.utils.dblog.model.sqlfilter.SqlFilter_log_name"/>
+
+    <!-- сервис логирования -->
+    <service name="geoprocessing.utils.dblog.DbLogService"
+             class="geoprocessing.utils.dblog.impl.DbLogServiceImpl"/>
+
+</root>

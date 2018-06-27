@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <domain name="ProcessedExperimentData" parent="wax.Table" tag.db="true" title="Обработанные данные эксперимента">
+
+        <field name="experimentFile" parent="ExperimentFile/ref"/>
+
+        <field name="veilvetType" parent="FD_VeilvetType/ref"/>
+
+        <field name="x" parent="double" title="x"/>
+
+        <field name="y" parent="double" title="y"/>
+
+        <field name="a" parent="double" title="a"/>
+
+
+
+
+        <!-- ===================================================================== -->
+        <dao name="list" class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_list"/>
+        <dao name="updater" class="geoprocessing.main.model.experiment.data.ProcessedExperimentData_updater"/>
+    </domain>
+
+    <!-- ===================================================================== -->
+
+    <domain name="ProcessedExperimentData.filter" parent="ProcessedExperimentData">
+
+
+    </domain>
+
+</root>

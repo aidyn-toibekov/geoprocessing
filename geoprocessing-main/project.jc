@@ -1,0 +1,13 @@
+//
+load '..'
+//
+project.name = "geoprocessing-main"
+project.package_root = "geoprocessing.main"
+//
+include "wax-module-project"
+include "localize-project"
+//
+libs = libs + ["jandcode-wax-core", "jandcode-bgtasks", "jandcode-wax-verdb",
+               "geoprocessing-utils", "geoprocessing-mssql"]
+libs_dev = libs_dev + []
+//

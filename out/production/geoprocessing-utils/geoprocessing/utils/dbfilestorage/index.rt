@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!--
+        Файловое хранилище.
+
+        Хранит список и характеристики файлов в базе, сами файлы хранятся
+        на диске.
+
+    -->
+
+    <!-- плагин модели для подключения в модель проекта -->
+    <x-plugin name="geoprocessing.utils.dbfilestorage.model"
+              path="model/model.rt">
+        <depend name="jandcode.wax.core.model"/>
+        <depend name="geoprocessing.utils.dbinfo.model"/>
+    </x-plugin>
+
+    <web>
+        <!-- для download файла из хранилища -->
+        <type name="geoprocessing.utils.dbfilestorage.DbFileStorageItem">
+            <render name="bin"
+                    class="geoprocessing.utils.dbfilestorage.RenderBin_DbFileStorageItem"/>
+        </type>
+    </web>
+
+</root>

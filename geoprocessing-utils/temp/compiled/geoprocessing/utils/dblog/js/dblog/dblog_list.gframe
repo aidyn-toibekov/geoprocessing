@@ -1,0 +1,57 @@
+<script type="text/javascript">
+  TH.create('Jc.Frame', {
+
+    /**
+     * Для какого лога включить фильтр по умолчанию
+     */
+    logName: null,
+
+    onInit: function() {
+      var th = this;
+      var b = th.createBuilder();
+      //
+      Ext.apply(th, {
+        title: 'Журнал',
+        layout: b.layout('vbox')
+      });
+      var filterData = {};
+      if (th.logName) {
+        filterData['name'] = th.logName;
+      }
+      //
+      th.items = [
+        b.frameheader({icon: "log"}),
+        //
+        b.sgrid({
+          flex: 1,
+          //
+          domain: "DbLog",
+          daoname: "DbLog/list",
+          paginate: true,
+          //
+          filterPanel: true,
+          filterDomain: "DbLog.filter",
+          filterData: filterData,
+          filterFrame: function(b) {
+            return [
+              b.input2("name"),
+              b.input2("lev")
+            ];
+          },
+          //
+          columns: function(b) {
+            return [
+              b.column('lev', {jsclass: 'Icontext', bold: true, onIconCell: function(v) {
+                return 'log-' + v;
+              }}),
+              b.column('dt', {width: 110}),
+              b.column('name', {width: 170}),
+              b.column('msg', {tdCls: "td-wrap", flex: 1})
+            ];
+          }
+        })
+      ];
+
+    }
+  });
+</script>

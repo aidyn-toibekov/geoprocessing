@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <!--
+        Настройки базы данных по умолчанию
+    -->
+
+    <db name="default"
+        database="#{path}/DERBY_DATABASE"
+            />
+
+    <!-- ===================================================================== -->
+
+    <x-include path="_db-ini.rt" required="false"/>
+
+</root>

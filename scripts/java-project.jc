@@ -1,0 +1,425 @@
+/**
+ * Проект на java по соглашениям jandcode
+ *
+ * events:
+ *
+ * javaBeforeCompile()
+ *      params:
+ *          module - this project
+ *
+ * javaAfterCompile()
+ *      params:
+ *          module - this project
+ *
+ */
+
+def compile_java_fix
+
+PROJECT_JAVA = true
+
+/**
+ * Версия
+ */
+if (!vars.containsKey("version")) {
+    version = ""
+}
+
+/**
+ * Зависимые библиотеки. Те, которые нужны в релизе.
+ */
+libs = []
+
+/**
+ * Список библиотек, используемых только при разработке и компиляции.
+ */
+libs_dev = ["junit"]
+
+/**
+ * Каталоги с исходниками.
+ * После загрузки проекта сюда попадает также каталог dir_src_gen
+ */
+dirs_src = ["src"]
+
+/**
+ * Каталог со сгенерированными исходниками
+ */
+dir_src_gen = wd("temp/src.gen")
+
+/**
+ * каталоги с тестами
+ */
+dirs_src_test = ["test"]
+
+/**
+ * корневой package для проекта. Например: com.myapp
+ */
+if (!vars.containsKey("package_root")) {
+    package_root = ""
+}
+
+/**
+ * Корневой каталог для пакета проекта. Например: com/myapp
+ */
+getPackage_root_dir = {
+    return package_root.replace(".", "/")
+}
+
+/**
+ * В какой каталог будет компилироваться
+ */
+dir_compiled = wd("temp/compiled")
+
+/**
+ * В какой каталог будут компилироваться тесты
+ */
+dir_compiled_test = wd("temp/compiled.test")
+
+/**
+ * Полное имя получаемого после компиляции jar-файла.
+ * Настраивается в afterLoad.
+ */
+file_jar = ""
+
+/**
+ * Полное имя получаемого zip-файла с исходниками
+ * Настраивается в afterLoad.
+ */
+file_src = ""
+
+/**
+ * Отчет о unit-тестирование в xml
+ */
+dir_testreport_xml = wd("temp/testreport.xml")
+
+/**
+ * Отчет о unit-тестирование в html
+ */
+dir_testreport_html = wd("temp/testreport.html")
+
+///////////////////////////////////////////////////////////////////////
+
+project.afterLoad = {
+    // версия
+    if (version == "") {
+        version = "SNAPSHOT"
+    }
+    // все исходники
+    dirs_src << dir_src_gen
+    //
+    file_jar = wd("temp/lib/${project.name}.jar")
+    log.debug "jar: ${file_jar}"
+    file_src = wd("temp/lib/${project.name}-src.zip")
+    // добавляем проект как библиотеку
+    makelib()
+}
+
+/**
+ * добавляем проект как библиотеку
+ */
+makelib = {
+    makelib_default()
+}
+
+makelib_default = {
+    def lib = repo.addLib(project.name)
+    lib.setJar(file_jar)
+    lib.setSrc(file_src)
+    lib.setVersion(version)
+    for (z in libs) {
+        lib.getDepends().add(z)
+    }
+    lib.setProject(project)
+    lib.setRecompileClosure(recompile)
+}
+
+///////////////////////////////////////////////////////////////////////
+
+clean = cm("Очистка от временных файлов") {
+    log.info "clean project: ${project.projectFile}"
+    ut.cleandir(wd("temp"))
+}
+
+///////////////////////////////////////////////////////////////////////
+
+_compiled_ok = false
+_compiled_ant_flag = "_compiled_ant_flag.${project.projectFile}"
+
+compile = cm("Компиляция") {
+    ut.delim("Сompile project [${project.name}]")
+    ut.cleanfile(file_jar)
+    // уведомляем
+    project.fireEvent("javaBeforeCompile", [module: project])
+    // генерация
+    gen()
+    // компиляция
+    compile_java_fix(destdir: dir_compiled, srcs: dirs_src, libs: libs + libs_dev)
+    makejar()
+    ut.delim()
+    _compiled_ok = true
+    // уведомляем
+    project.fireEvent("javaAfterCompile", [module: project])
+}
+
+/**
+ * Формирование jar
+ */
+makejar = {
+    ant.jar(destfile: file_jar, basedir: dir_compiled) {
+        manifest() {
+            attribute(name: "Specification-Version", value: version)
+            attribute(name: "Implementation-Version", value: version)
+        }
+    }
+}
+
+/**
+ * Возвращает true, если проект скомпилирован
+ */
+getCompiled = {
+    if (_compiled_ok) {
+        return true
+    }
+    ant.uptodate(property: _compiled_ant_flag, targetfile: file_jar) {
+        srcfiles(dir: fu.path(project.projectFile), includes: fu.filename(project.projectFile))
+        for (s in dirs_src) {
+            srcfiles(dir: s, includes: "**/*")
+        }
+    }
+    def flag = ("true" == ant.project.properties[_compiled_ant_flag])
+    if (flag) {
+        _compiled_ok = true
+    }
+    return flag
+}
+
+/**
+ * Проверка, что проект изменился и перекомпиляция его, если изменился
+ */
+recompile = {
+    if (compiled) return;
+    compile()
+}
+
+///////////////////////////////////////////////////////////////////////
+
+/**
+ * Генерация исходников перед компиляцией
+ */
+gen = {
+    ut.cleandir(dir_src_gen)
+    gen_default()
+    gen_impl()
+}
+
+/**
+ * Генерация по умолчанию.
+ * Генерит файл с информацией о версии в корневой пакет проекта.
+ */
+gen_default = {
+    if (!su.empty(package_root)) {
+        def vd = fu.join(dir_src_gen, package_root_dir)
+        ant.mkdir(dir: vd)
+        ant.echo(message: "version=${version}", file: fu.join(vd, "version.properties"))
+    }
+}
+
+/**
+ * Генерация исходников. Перекрывается при необходимости.
+ */
+gen_impl = {
+}
+
+///////////////////////////////////////////////////////////////////////
+
+/**
+ * Упаковка src в zip
+ */
+zipsrc = {
+    ut.cleanfile(file_src)
+    ant.zip(destfile: file_src) {
+        for (s in dirs_src) {
+            fileset(dir: s) {
+                include(name: "**/*.*")
+            }
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+
+test = cm("Запуск unit-тестов") {
+    run_test()
+}
+
+/**
+ * компиляция тестов
+ */
+compile_test = {
+    log.info "Compile tests"
+    compile_java_fix(destdir: dir_compiled_test, srcs: dirs_src_test,
+            libs: libs + libs_dev + [project.name])
+}
+
+/**
+ * Вызывается перед запуском тестов для подготовки тестовой среды
+ */
+prepare_test = {
+}
+
+/**
+ * Запуск unit-тестов
+ */
+run_test = {
+    depend(recompile)
+    if (dirs_src_test.size() == 0) {
+        log.info "Test not defined for: ${project.name}"
+        return
+    }
+    ut.delim("Prepare test project [${project.name}]")
+    depend(prepare_test)
+    ut.delim("Test project [${project.name}]")
+    depend(compile_test)
+
+    repo.addClasspath "ant-junit"
+
+    def rlibs = repo.getLibs(libs + libs_dev + [project.name])
+    def cp = rlibs.classpath()
+
+    log.info "Run tests"
+    ut.cleandir(dir_testreport_xml)
+    ut.cleandir(dir_testreport_html)
+
+    ant.junit(dir: wd, fork: "yes", forkmode: "once") {
+        jvmarg(line: "-Djandcode.batchtest=true -Dfile.encoding=UTF-8")
+        formatter(type: "xml")
+        classpath() {
+            pathelement(path: cp)
+            pathelement(path: dir_compiled_test)
+        }
+        batchtest(todir: dir_testreport_xml) {
+            fileset(dir: dir_compiled_test) {
+                include(name: "**/*Test.class")
+            }
+        }
+    }
+
+    log.info "Report test"
+    ant.junitreport(todir: dir_testreport_html) {
+        fileset(dir: dir_testreport_xml) {
+            include(name: "**/*.xml")
+        }
+        report(format: "frames", todir: dir_testreport_html)
+    }
+
+    ut.delim()
+}
+
+////// idea
+
+gen_idea = cm("Генерация файлов idea",
+        p: [value: false, help: "Генерировать файл проекта. Если не указано, генерируется только модуль"],
+        r: [value: false, help: "Генерировать также все зависимые модули"],
+) {
+    include "idea"
+    idea.gen_module(project, libs + libs_dev)
+    if (args.r) {
+        def lst = repo.getLibs(libs + libs_dev)
+        for (lib in lst) {
+            if (lib.project != null) {
+                idea.gen_module(lib.project, lib.project.vars.libs + lib.project.vars.libs_dev)
+            }
+        }
+    }
+    if (args.p) {
+        idea.gen_project(project, libs + libs_dev + [project.name])
+    }
+}
+
+////// libs
+
+showlibs = cm("Просмотр библиотек",
+        a: [help: "Показать все доступные библиотеки"]
+) {
+    if (args.a) {
+        ut.showlibs(repo.getLibs(), "all libs")
+    } else {
+        ut.showlibs(repo.getLibs(libs_dev), "dev")
+        ut.showlibs(repo.getLibs(libs), "depends")
+    }
+}
+
+//////
+
+compile_java_fix = {Map pp ->
+    def p = ut.asVariantMap(pp)
+    //
+    def destdir = p.get('destdir', wd("temp/compiled"))
+    def srcs = p.get('srcs', [wd("src")])
+    def libs = p.get('libs', [])
+    def debug = p.get('debug', true)
+    def exclude_res = p.get('exclude_res', ["**/*.java", "**/*.groovy"])
+    def classpath = p.get('classpath', "")
+    def encoding = p.get('encoding', "utf-8")
+    //
+
+    repo.addClasspath "jdk-tools"
+
+    log.debug "Compile to [${destdir}]"
+    ut.cleandir(destdir)
+
+    // определяем наличие groovy
+    boolean isGroovy = false
+    for (s in srcs) {
+        def lst = ut.filelist("**/*.groovy", s)
+        if (lst.size() > 0) {
+            isGroovy = true
+            break
+        }
+    }
+    if (isGroovy) {
+        log.debug "GROOVY compile mode on"
+    }
+
+    //
+    def rlibs = repo.getLibs(libs)
+    def cp = rlibs.classpath(classpath)
+
+    if (log.verbose) {
+        log.debug "Using classpath:"
+        def ar = cp.split(";")
+        for (a in ar) {
+            log.debug " | -> ${a}"
+        }
+    }
+
+    if (!isGroovy) {
+        ant.javac(destdir: destdir, debug: debug, includeantruntime: false, fork: true,
+                classpath: cp, encoding: encoding) {
+            for (s in srcs) {
+                src(path: s)
+            }
+            include(name: "**/*.java")
+        }
+    } else {
+        ant.taskdef(name: "groovyc", classname: "org.codehaus.groovy.ant.Groovyc")
+        ant.groovyc(destdir: destdir, includeantruntime: false, fork: true,
+                classpath: cp, encoding: encoding, memoryMaximumSize: '800m') {
+            for (s in srcs) {
+                src(path: s)
+            }
+            javac(debug: debug, encoding: encoding)
+        }
+
+    }
+    ant.copy(todir: destdir, overwrite: "true") {
+        for (s in srcs) {
+            fileset(dir: s) {
+                include(name: "**/*")
+                for (ex in exclude_res) {
+                    exclude(name: ex)
+                }
+            }
+        }
+    }
+
+}

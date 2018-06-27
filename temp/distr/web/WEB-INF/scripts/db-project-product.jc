@@ -1,0 +1,44 @@
+import jandcode.dbm.jc.*
+
+DbmProjectExt dbmext = createExt(DbmProjectExt)
+dbmext.dbscript_dir = "scripts/dbscript"
+// help по умолчанию для указания модели
+def HELP_M = [value: "default", help: "Имя зарегистрированной модели. По умолчанию 'default'"]
+
+/////////////////////
+
+db_info = cm("Информация о базе данных и проверка соединения",
+        m: HELP_M
+) {
+    dbmext.modelName = args.m
+    dbmext.printDbInfo()
+    dbmext.checkConnect()
+}
+
+db_create = cm("Создание базы данных",
+        m: HELP_M
+) {
+    dbmext.modelName = args.m
+    dbmext.createDatabase(true, true, true, false)
+}
+
+db_create_ref = cm("Создание references",
+        m: HELP_M
+) {
+    dbmext.modelName = args.m
+    dbmext.createRef()
+}
+
+db_drop_ref = cm("Удаление references",
+        m: HELP_M
+) {
+    dbmext.modelName = args.m
+    dbmext.dropRef()
+}
+
+db_recover_id = cm("Восстановление id после ручной загрузки данных",
+        m: HELP_M
+) {
+    dbmext.modelName = args.m
+    dbmext.recoverId()
+}

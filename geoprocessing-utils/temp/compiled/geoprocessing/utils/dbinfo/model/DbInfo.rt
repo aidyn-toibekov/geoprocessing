@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <domain name="DbInfo" parent="wax.Table" tag.db="true"
+            title="Информация о базе данных">
+        <!--@
+
+        -->
+
+        <field name="dbid" parent="string" size="40"
+               title="ID экземпляра базы">
+        </field>
+
+        <!-- =================== -->
+
+        <dao name="utils" class="geoprocessing.utils.dbinfo.model.DbInfo_utils"/>
+
+    </domain>
+
+
+</root>

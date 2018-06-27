@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <domain name="FilledDict" parent="wax.Table"
+            >
+        <ref parent="field/ref.dict">
+            <js>
+                <input jsclass="CbdictVis"/>
+            </js>
+        </ref>
+
+        <dict defaultField="name"/>
+
+        <field name="name" parent="f.name"/>
+        <field name="fullName" parent="f.fullName"/>
+        <field name="ord" parent="f.ord" title="Порядковый номер"></field>
+        <field name="vis" parent="int" title="Видимый"></field>
+
+        <dao name="dict" class="jandcode.wax.core.model.WaxLoadDictDao"/>
+
+        <dataloader name="dictdata" dbdata="prod"
+                    class="geoprocessing.main.model.fd.FilledDictDataLoader"/>
+    </domain>
+
+
+</root>

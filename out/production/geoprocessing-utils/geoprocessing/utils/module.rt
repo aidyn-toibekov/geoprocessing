@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+    <x-module name="geoprocessing.utils">
+        <depend name="jandcode.wax.core"/>
+        <depend name="jandcode.dbm.db.oracle"/>
+    </x-module>
+
+    <x-include path="dblog/index.rt"/>
+    <x-include path="dbinfo/index.rt"/>
+    <x-include path="dbfilestorage/index.rt"/>
+
+    <web>
+        <resource name="geoprocessing.utils.dblog" package="geoprocessing.utils.dblog"
+                  filemark="index.rt"/>
+    </web>
+
+</root>
