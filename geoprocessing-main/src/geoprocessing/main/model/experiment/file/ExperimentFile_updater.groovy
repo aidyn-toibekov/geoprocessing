@@ -14,7 +14,6 @@ class ExperimentFile_updater extends GeoprocessingUpdaterDao {
 
     protected void onBeforeDel(long id) {
         ut.execSql("delete ExperimentData where experimentFile = :experimentFile", UtCnv.toMap("experimentFile", id))
-        ut.execSql("delete ProcessedExperimentData where experimentFile = :experimentFile", UtCnv.toMap("experimentFile", id))
         super.onBeforeDel(id)
     }
 
