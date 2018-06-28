@@ -65,6 +65,14 @@
     items:[th.chart]
   })
 
+  //
+  sgrid.on('afterrender', function() {
+    var rec = sgrid.store.getAt(0);
+    if (rec) {
+      sgrid.setCurRec(rec);
+    }
+  });
+
 
   //
   th.items = [

@@ -16,7 +16,7 @@
 
         <field name="processed" parent="boolean" title="Обработан"/>
 
-        <field name="description" parent="f.cmt" title="Описание"/>
+        <field name="description" parent="lang.memo" title="Описание"/>
 
 
         <!-- ===================================================================== -->

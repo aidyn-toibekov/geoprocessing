@@ -23,6 +23,8 @@
   //
   var httml2 = "<div align=\"center\"><h2>Автор приложения</h2> </div> " +
   "<div align=\"center\"><h5>Выпускник ЕНУ им. Л.Н. Гумилева</h5> </div>" +
+  "<div align=\"center\"><h5>по специальности 6M70400 \"Вычислительная техника</h5> </div>" +
+  "<div align=\"center\"><h5> и програмное обеспечение\"</h5> </div>" +
   "<div align=\"center\"><h4>Есебаева Б.Е.</h4> </div>" +
   "<div align=\"center\"><h5>Республика Казахстан, Астана "
   httml2 += new Date().getFullYear()
