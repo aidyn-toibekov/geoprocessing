@@ -1,8 +1,19 @@
 # Compiled class file
 *.class
+?
+?.bat
+*.iws
+*.iml
+*.ipr
+*.pyc
+*.pyo
 
 # Log file
 *.log
+^_
+_product.*
+temp.*
+/out.*
 
 # BlueJ files
 *.ctxt
