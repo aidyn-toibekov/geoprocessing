@@ -1,0 +1,43 @@
+#! /bin/sh
+
+# run first found jc-run.sh from current dir and up
+
+WD=`pwd`
+JCR="jc-run.sh"
+LEV="x"
+
+while true
+do
+
+  FND="${WD}/${JCR}"
+  if [ -e "${FND}" ]; then
+    break
+  fi
+
+  FND="${WD}/jandcode-core-bin/${JCR}"
+  if [ -e "${FND}" ]; then
+    break
+  fi
+
+  FND="${WD}/jandcode-core/${JCR}"
+  if [ -e "${FND}" ]; then
+    break
+  fi
+
+  LEV="${LEV}x"
+  if [ "${LEV}" = "xxxxxxxxxxxx" ]; then
+    WD=`dirname $0`
+    FND="${WD}/${JCR}"
+    if [ -e "${FND}" ]; then
+      break
+    fi
+    echo "ERROR! ${JCR} not found"
+    exit 1
+  fi
+
+  WD=${WD}/..
+
+done
+
+sh ${FND} $*
+
